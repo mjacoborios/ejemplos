@@ -11,7 +11,7 @@ public class HelloEhCache{
 		//use the Runtime to get a rough estimation of memory cost as a whole 
 		
 		//long startMemory = Runtime.getRuntime().totalMemory(); 
-		
+		//Modifique esta linea
 		//1. Create a cache manager
 		CacheManager cm = CacheManager.newInstance();
 		
