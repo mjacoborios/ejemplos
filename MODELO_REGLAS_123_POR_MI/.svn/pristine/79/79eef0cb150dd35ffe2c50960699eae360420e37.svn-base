@@ -1,0 +1,680 @@
+/**********************************************************************************************************************
+ * Copyright © 2010 - 2012, Accenture Software, All Rights Reserved.
+ * 
+ * Project Name: PF_FACTORY_BH_SERVICES
+ * 
+ * Description: pff Business Hub Services project contains entity data and implements both the business logic and the
+ * access layer with external systems (databases, external legacies through ESB, etc.) of pff application
+ * 
+ * Application: Product and Fee Factory
+ * 
+ * Company: Accenture
+ * 
+ * The trademarks used in these materials are the properties of their respective owners. This work is protected by
+ * copyright law and contains valuable trade secrets and confidential information.
+ ********************************************************************************************************************** 
+ */
+package com.accenture.ang.pffactory.referencial.entity.pricingdwh;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
+import javax.persistence.Version;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
+
+import com.accenture.ang.common.referencial.audit.AuditEntity;
+//import com.accenture.ang.common.validation.CodeTable;
+import com.accenture.ang.customerinformation.common.enums.PartyContractRelationshipStatusEnum;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+
+/**
+ * Contract Customer relationship.
+ * 
+ * @generated
+ */
+@Table(name = "pff_contractcustomer", uniqueConstraints = { @UniqueConstraint(name = "uni_contractnumber", columnNames = {
+		"entity", "entity2", "partyId", "contractDetails_id",
+		"partyContractRelStatus", "startDate" }) })
+@Entity(name = "pff_contractcustomer")
+public class ContractCustomer extends AuditEntity implements Serializable {
+
+    /**
+     * Default serial version UID.
+     */
+    private static final long serialVersionUID = 1L;
+    /**
+     * Member variable for Prime Number Hashcode.
+     */
+    private static final int PRIME_NUMBER_HASHCODE = 31;
+    /**
+	 * Charge unique identifier..
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long id;
+    /**
+	 * Auditory's attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 10, fraction = 0)
+    private Long dataVersion;
+    /**
+	 * The customerDetails attribute.
+	 * 
+	 * @generated
+	 */
+    private CustomerDetails customerDetails;
+    /**
+	 * The contractDetails attribute.
+	 * 
+	 * @generated
+	 */
+//    @JsonIgnore
+    private ContractDetails contractDetails;
+    /**
+	 * Overall organisation code identification (entity) in the system.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 4)
+    private String entity;
+    /**
+	 * Specific organisation subcode identification (entity) in the system..
+	 * 
+	 * @generated
+	 */
+    @Size(max = 4)
+    private String entity2;
+    /**
+	 * Participant type of a party which indicates the kind of possible
+	 * relationship between the party and an account in the system (participant
+	 * relationship.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//    @CodeTable(tableName = "codetable.common.codetable.participant_type")
+    private String participantType;
+    /**
+	 * Sequence number of adding as participant for the party.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 2, fraction = 0)
+    private Integer sequence;
+    /**
+	 * Status of party contract relationship.
+	 * 
+	 * @generated
+	 */
+    private PartyContractRelationshipStatusEnum partyContractRelStatus;
+    /**
+	 * Starting date of the slot when the party was participant in the account.
+	 * 
+	 * @generated
+	 */
+    private Date startDate;
+    /**
+	 * Ending date of the slot when the party was participant in the account.
+	 * 
+	 * @generated
+	 */
+    private Date endDate;
+    /**
+	 * Cancel reason for logic removing .
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//    @CodeTable(tableName = "codetable.customerinformation.codetable.cancel_reason_contract_holding")
+    private String cancelReason;
+    /**
+	 * <p>
+	 * Main Party number identification.
+	 * </p>
+	 * .
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long mainPartyId;
+
+    /**
+	 * Retrieves the id.
+	 * 
+	 * @return Charge unique identifier..
+	 * 
+	 * @generated
+	 */
+    @SequenceGenerator(name = "id_sequence", sequenceName = "SEQ_PFF_CONTRACTCUSTOMER")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "id_sequence")
+    @Column(nullable = false, length = 0, precision = 20)
+    @Id
+    public Long getId() {
+		/* Begin: Custom Code */
+        return this.id;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the id.
+	 * 
+	 * @param id
+	 *            Charge unique identifier..
+	 * 
+	 * @generated
+	 */
+    public void setId(Long id) {
+		this.id = id;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the dataVersion.
+	 * 
+	 * @return Auditory's attribute.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 10)
+    @Version
+    public Long getDataVersion() {
+		/* Begin: Custom Code */
+        return this.dataVersion;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the dataVersion.
+	 * 
+	 * @param dataVersion
+	 *            Auditory's attribute.
+	 * 
+	 * @generated
+	 */
+    public void setDataVersion(Long dataVersion) {
+		this.dataVersion = dataVersion;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the customerDetails.
+	 * 
+	 * @return the customerDetails return value.
+	 * 
+	 * @generated
+	 */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "partyId", referencedColumnName = "partyId")
+    public CustomerDetails getCustomerDetails() {
+		/* Begin: Custom Code */
+        return this.customerDetails;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the customerDetails.
+	 * 
+	 * @param customerDetails
+	 *            the customerDetails parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setCustomerDetails(CustomerDetails customerDetails) {
+		this.customerDetails = customerDetails;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the contractDetails.
+	 * 
+	 * @return the contractDetails return value.
+	 * 
+	 * @generated
+	 */
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contractDetails_id", referencedColumnName = "id")
+    public ContractDetails getContractDetails() {
+		/* Begin: Custom Code */
+        return this.contractDetails;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the contractDetails.
+	 * 
+	 * @param contractDetails
+	 *            the contractDetails parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setContractDetails(ContractDetails contractDetails) {
+		this.contractDetails = contractDetails;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the entity.
+	 * 
+	 * @return Overall organisation code identification (entity) in the system.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 4)
+    public String getEntity() {
+		/* Begin: Custom Code */
+        return this.entity;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the entity.
+	 * 
+	 * @param entity
+	 *            Overall organisation code identification (entity) in the
+	 *            system.
+	 * 
+	 * @generated
+	 */
+    public void setEntity(String entity) {
+		this.entity = entity;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the entity2.
+	 * 
+	 * @return Specific organisation subcode identification (entity) in the
+	 *         system..
+	 * 
+	 * @generated
+	 */
+    @Column(length = 4)
+    public String getEntity2() {
+		/* Begin: Custom Code */
+        return this.entity2;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the entity2.
+	 * 
+	 * @param entity2
+	 *            Specific organisation subcode identification (entity) in the
+	 *            system..
+	 * 
+	 * @generated
+	 */
+    public void setEntity2(String entity2) {
+		this.entity2 = entity2;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the participantType.
+	 * 
+	 * @return Participant type of a party which indicates the kind of possible
+	 *         relationship between the party and an account in the system
+	 *         (participant relationship.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 5)
+    public String getParticipantType() {
+		/* Begin: Custom Code */
+        return this.participantType;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the participantType.
+	 * 
+	 * @param participantType
+	 *            Participant type of a party which indicates the kind of
+	 *            possible relationship between the party and an account in the
+	 *            system (participant relationship.
+	 * 
+	 * @generated
+	 */
+    public void setParticipantType(String participantType) {
+		this.participantType = participantType;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the sequence.
+	 * 
+	 * @return Sequence number of adding as participant for the party.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 0, precision = 2)
+    public Integer getSequence() {
+		/* Begin: Custom Code */
+        return this.sequence;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the sequence.
+	 * 
+	 * @param sequence
+	 *            Sequence number of adding as participant for the party.
+	 * 
+	 * @generated
+	 */
+    public void setSequence(Integer sequence) {
+		this.sequence = sequence;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the partyContractRelStatus.
+	 * 
+	 * @return Status of party contract relationship.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.customerinformation.common.enums.PartyContractRelationshipStatusEnum"))
+    public PartyContractRelationshipStatusEnum getPartyContractRelStatus() {
+		/* Begin: Custom Code */
+        return this.partyContractRelStatus;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the partyContractRelStatus.
+	 * 
+	 * @param partyContractRelStatus
+	 *            Status of party contract relationship.
+	 * 
+	 * @generated
+	 */
+    public void setPartyContractRelStatus(PartyContractRelationshipStatusEnum partyContractRelStatus) {
+		this.partyContractRelStatus = partyContractRelStatus;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the startDate.
+	 * 
+	 * @return Starting date of the slot when the party was participant in the
+	 *         account.
+	 * 
+	 * @generated
+	 */
+    @Temporal(TemporalType.DATE)
+    public Date getStartDate() {
+		/* Begin: Custom Code */
+        return (this.startDate == null) ? null : (Date) this.startDate.clone();
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the startDate.
+	 * 
+	 * @param startDate
+	 *            Starting date of the slot when the party was participant in
+	 *            the account.
+	 * 
+	 * @generated
+	 */
+    public void setStartDate(Date startDate) {
+		this.startDate = (startDate == null) ? null : (Date) startDate.clone();
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the endDate.
+	 * 
+	 * @return Ending date of the slot when the party was participant in the
+	 *         account.
+	 * 
+	 * @generated
+	 */
+    @Temporal(TemporalType.DATE)
+    public Date getEndDate() {
+		/* Begin: Custom Code */
+        return (this.endDate == null) ? null : (Date) this.endDate.clone();
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the endDate.
+	 * 
+	 * @param endDate
+	 *            Ending date of the slot when the party was participant in the
+	 *            account.
+	 * 
+	 * @generated
+	 */
+    public void setEndDate(Date endDate) {
+		this.endDate = (endDate == null) ? null : (Date) endDate.clone();
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the cancelReason.
+	 * 
+	 * @return Cancel reason for logic removing .
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    public String getCancelReason() {
+		/* Begin: Custom Code */
+        return this.cancelReason;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the cancelReason.
+	 * 
+	 * @param cancelReason
+	 *            Cancel reason for logic removing .
+	 * 
+	 * @generated
+	 */
+    public void setCancelReason(String cancelReason) {
+		this.cancelReason = cancelReason;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the mainPartyId.
+	 * 
+	 * @return <p>
+	 *         Main Party number identification.
+	 *         </p>
+	 *         .
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 0, precision = 20)
+    public Long getMainPartyId() {
+		/* Begin: Custom Code */
+        return this.mainPartyId;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the mainPartyId.
+	 * 
+	 * @param mainPartyId
+	 *            <p>
+	 *            Main Party number identification.
+	 *            </p>
+	 *            .
+	 * 
+	 * @generated
+	 */
+    public void setMainPartyId(Long mainPartyId) {
+		this.mainPartyId = mainPartyId;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Method to generate hash code value of each attribute.
+	 * 
+	 * @return a hash code value for this object.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public int hashCode() {
+		int result = super.hashCode();
+		result = ContractCustomer.PRIME_NUMBER_HASHCODE * result
+				+ ((this.id == null) ? 0 : this.id.hashCode());
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return result;
+	}
+
+    /**
+	 * Indicates whether some other object is "equal to" this one.
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare.
+	 * @return true if this object is the same as the obj argument; false
+	 *         otherwise.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		ContractCustomer other = (ContractCustomer) obj;
+		if (this.id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else if (!this.id.equals(other.id)) {
+			return false;
+		}
+		if (this.dataVersion == null) {
+			if (other.dataVersion != null) {
+				return false;
+			}
+		} else if (!this.dataVersion.equals(other.dataVersion)) {
+			return false;
+		}
+		if (this.customerDetails == null) {
+			if (other.customerDetails != null) {
+				return false;
+			}
+		} else if (!this.customerDetails.equals(other.customerDetails)) {
+			return false;
+		}
+		if (this.contractDetails == null) {
+			if (other.contractDetails != null) {
+				return false;
+			}
+		} else if (!this.contractDetails.equals(other.contractDetails)) {
+			return false;
+		}
+		if (this.entity == null) {
+			if (other.entity != null) {
+				return false;
+			}
+		} else if (!this.entity.equals(other.entity)) {
+			return false;
+		}
+		if (this.entity2 == null) {
+			if (other.entity2 != null) {
+				return false;
+			}
+		} else if (!this.entity2.equals(other.entity2)) {
+			return false;
+		}
+		if (this.participantType == null) {
+			if (other.participantType != null) {
+				return false;
+			}
+		} else if (!this.participantType.equals(other.participantType)) {
+			return false;
+		}
+		if (this.sequence == null) {
+			if (other.sequence != null) {
+				return false;
+			}
+		} else if (!this.sequence.equals(other.sequence)) {
+			return false;
+		}
+		if (this.partyContractRelStatus != other.partyContractRelStatus) {
+			return false;
+		}
+		if (this.startDate == null) {
+			if (other.startDate != null) {
+				return false;
+			}
+		} else if (!this.startDate.equals(other.startDate)) {
+			return false;
+		}
+		if (this.endDate == null) {
+			if (other.endDate != null) {
+				return false;
+			}
+		} else if (!this.endDate.equals(other.endDate)) {
+			return false;
+		}
+		if (this.cancelReason == null) {
+			if (other.cancelReason != null) {
+				return false;
+			}
+		} else if (!this.cancelReason.equals(other.cancelReason)) {
+			return false;
+		}
+		if (this.mainPartyId == null) {
+			if (other.mainPartyId != null) {
+				return false;
+			}
+		} else if (!this.mainPartyId.equals(other.mainPartyId)) {
+			return false;
+		}
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return true;
+	}
+}

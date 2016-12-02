@@ -1,0 +1,2174 @@
+/**********************************************************************************************************************
+ * Copyright Ã‚Â© 2010 - 2012, Accenture Software, All Rights Reserved.
+ * 
+ * Project Name: PF_FACTORY_BH_SERVICES
+ * 
+ * Description: pff Business Hub Services project contains entity data and implements both the business logic and the
+ * access layer with external systems (databases, external legacies through ESB, etc.) of pff application
+ * 
+ * Application: Product and Fee Factory
+ * 
+ * Company: Accenture
+ * 
+ * The trademarks used in these materials are the properties of their respective owners. This work is protected by
+ * copyright law and contains valuable trade secrets and confidential information.
+ ********************************************************************************************************************** 
+ */
+package com.accenture.ang.pffactory.referencial.entity.pricingdwh;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.persistence.Version;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
+
+import com.accenture.ang.common.referencial.audit.AuditEntity;
+import com.accenture.ang.general.common.enums.CurrencyCodeEnum;
+import com.accenture.ang.general.common.identifiers.BasicProductID;
+import com.accenture.ang.general.common.identifiers.OfferingID;
+import com.accenture.ang.pffactory.common.enums.ItemPeriodTypeEnum;
+import com.accenture.ang.pffactory.common.enums.PriceBehaviourEnum;
+
+/**
+ * Represent the contracts details for a contract Id..
+ * 
+ * @generated
+ */
+@Table(name = "pff_contractdetails", uniqueConstraints = { @UniqueConstraint(name = "uni_contract", columnNames = {
+		"internalcontractnumber", "entity", "entity2" }) })
+@org.hibernate.annotations.Table(appliesTo = "pff_contractdetails", indexes = { @org.hibernate.annotations.Index(name = "IFile", columnNames = {
+		"IFile", "entity", "entity2" }) })
+@Entity(name = "pff_contractdetails")
+public class ContractDetails extends AuditEntity implements Serializable {
+
+    /**
+     * Default serial version UID.
+     */
+    private static final long serialVersionUID = 1L;
+    /**
+     * Member variable for Prime Number Hashcode.
+     */
+    private static final int PRIME_NUMBER_HASHCODE = 31;
+    /**
+	 * Charge unique identifier..
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long id;
+    /**
+	 * The dateFrom attribute.
+	 * 
+	 * @generated
+	 */
+	private Date dateFrom;
+    /**
+	 * The currency attribute.
+	 * 
+	 * @generated
+	 */
+    private CurrencyCodeEnum currency;
+    /**
+	 * The frequencyCharge attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 10, fraction = 0)
+    private Integer frequencyCharge;
+    /**
+	 * The frequencyChargeType attribute.
+	 * 
+	 * @generated
+	 */
+    private ItemPeriodTypeEnum frequencyChargeType;
+    /**
+	 * The iFile attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 20)
+    private String iFile;
+    /**
+	 * The iFileFlag attribute.
+	 * 
+	 * @generated
+	 */
+    private Boolean iFileFlag;
+    /**
+	 * The familiyProduct attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 10)
+    private String familiyProduct;
+    /**
+	 * Attribute that represents a bank entity, to filter the info that user can
+	 * view..
+	 * 
+	 * @generated
+	 */
+    @Size(max = 4)
+    private String entity;
+    /**
+	 * Attribute that represents a bank sub-entity, to filter the info that user
+	 * can view..
+	 * 
+	 * @generated
+	 */
+    @Size(max = 4)
+    private String entity2;
+    /**
+	 * Auditory's attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 10, fraction = 0)
+    private Long dataVersion;
+    /**
+	 * Account Status-..
+	 * 
+	 * @generated
+	 */
+    private String accountStatusCode;
+    /**
+	 * opening account date.
+	 * 
+	 * @generated
+	 */
+    private Date openingDate;
+    /**
+	 * Next Fee calculation Date of the account.
+	 * 
+	 * @generated
+	 */
+    private Date nextFeeCalculationDate;
+    /**
+	 * basic product version used by the contract.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 6, fraction = 0)
+    private Long basicProductVersion;
+    /**
+	 * standard pricing plan.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long standardPricingPlan;
+    /**
+	 * Pricing Plan.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long pricingPlan;
+    /**
+	 * Account Interest Plan.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long accountInterestPlan;
+    /**
+	 * variation spread.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 11, fraction = 8)
+    private Double variationSpread;
+    /**
+	 * Standard Charge Plan.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long standarChargePlan;
+    /**
+	 * Charge Plan.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long chargePlan;
+    /**
+	 * Account Fee Plan.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long accountFeePlan;
+    /**
+	 * Percentage Variation.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 11, fraction = 8)
+    private Double percentageVariation;
+    /**
+	 * Last Renewal Date.
+	 * 
+	 * @generated
+	 */
+    private Date lastRenewalDate;
+    /**
+	 * Offering Identifier. An offering can be a single or a bundle product..
+	 * 
+	 * @generated
+	 */
+    private OfferingID offeringId;
+    /**
+	 * Unique identifier for a Basic Product. It can be filled or autogenerated.
+	 * 
+	 * @generated
+	 */
+    private BasicProductID basicProductID;
+    /**
+	 * Account number in the system.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 20)
+    private String internalContractNumber;
+    /**
+	 * Account number managed in order to be adapted to the Entity/System
+	 * requirements for showing in the GUI..
+	 * 
+	 * @generated
+	 */
+    @Size(max = 20)
+    private String externalContractNumber;
+    /**
+	 * The priceBehaviour attribute.
+	 * 
+	 * @generated
+	 */
+    private PriceBehaviourEnum priceBehaviour;
+    /**
+	 * The contractBalance attribute.
+	 * 
+	 * @generated
+	 */
+    private ContractBalance contractBalance;
+    /**
+	 * The contractIndicator attribute.
+	 * 
+	 * @generated
+	 */
+    private ContractIndicator contractIndicator;
+    /**
+	 * Next Fee calculation Date of the account.
+	 * 
+	 * @generated
+	 */
+    private Date lastFeeCalculationDate;
+    /**
+	 * The contractCustomer attribute.
+	 * 
+	 * @generated
+	 */
+    private ContractCustomer contractCustomer;
+    /**
+	 * The mainProduct attribute.
+	 * 
+	 * @generated
+	 */
+    private Boolean mainProduct;
+
+    /**
+	 * The fechaEmpaquetamiento attribute.
+	 * 
+	 * @generated
+	 */
+	private Date fechaEmpaquetamiento;
+	/**
+	 * The monitoreoMensual attribute.
+	 * 
+	 * @generated
+	 */
+	private Set<MonitoreoMensual> monitoreoMensual;
+	/**
+	 * The catClavesEmp attribute.
+	 * 
+	 * @generated
+	 */
+	private CatClavesEmp catClavesEmp;
+	/**
+	 * The bonificaciones attribute.
+	 * 
+	 * @generated
+	 */
+	private Set<Bonificaciones> bonificaciones;
+	/**
+	 * The camposPrestamos attribute.
+	 * 
+	 * @generated
+	 */
+	private CamposPrestamos camposPrestamos;
+	/**
+	 * The camposTarjetas attribute.
+	 * 
+	 * @generated
+	 */
+	private CamposTarjetas camposTarjetas;
+	/**
+	 * The camposCaptacion attribute.
+	 * 
+	 * @generated
+	 */
+	private CamposCaptacion camposCaptacion;
+
+	/**
+	 * The PCT attribute.
+	 * 
+	 * @generated
+	 */
+	@Size(max = 3)
+	private String PCT;
+
+	/**
+	 * The historyId attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 200, fraction = 0)
+	private Integer historyId;
+
+	/**
+	 * The interestFlag attribute.
+	 * 
+	 * @generated
+	 */
+	private Boolean interestFlag;
+	/**
+	 * The modificationFlag attribute.
+	 * 
+	 * @generated
+	 */
+	private Boolean modificationFlag;
+	/**
+	 * The codigoMaestro attribute.
+	 * 
+	 * @generated
+	 */
+	@Size(max = 20)
+	private String codigoMaestro;
+	/**
+	 * The chargeFlag attribute.
+	 * 
+	 * @generated
+	 */
+	private Boolean chargeFlag;
+	/**
+	 * Account number in the system.
+	 * 
+	 * @generated
+	 */
+	@Size(max = 20)
+	private String tdcReclasificada;
+	/**
+	 * Parameter to calculate an charge value for a charge condition.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 15, fraction = 2)
+	private Double anualidad;
+	/* Constructor.
+     */
+    public ContractDetails() {
+        super();
+        this.contractBalance = new ContractBalance();
+        this.contractIndicator = new ContractIndicator();
+    }
+
+    /**
+	 * Retrieves the id.
+	 * 
+	 * @return Charge unique identifier..
+	 * 
+	 * @generated
+	 */
+    @SequenceGenerator(name = "id_sequence", sequenceName = "SEQ_PFF_CONTRACTDETAILS")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "id_sequence")
+    @Column(nullable = false, length = 0, precision = 20)
+    @Id
+    public Long getId() {
+		/* Begin: Custom Code */
+        return this.id;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the id.
+	 * 
+	 * @param id
+	 *            Charge unique identifier..
+	 * 
+	 * @generated
+	 */
+    public void setId(Long id) {
+		this.id = id;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the currency.
+	 * 
+	 * @return the currency return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 3)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.general.common.enums.CurrencyCodeEnum"))
+    public CurrencyCodeEnum getCurrency() {
+		/* Begin: Custom Code */
+        return this.currency;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the currency.
+	 * 
+	 * @param currency
+	 *            the currency parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setCurrency(CurrencyCodeEnum currency) {
+		this.currency = currency;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the frequencyCharge.
+	 * 
+	 * @return the frequencyCharge return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 10)
+    public Integer getFrequencyCharge() {
+		/* Begin: Custom Code */
+        return this.frequencyCharge;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the frequencyCharge.
+	 * 
+	 * @param frequencyCharge
+	 *            the frequencyCharge parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setFrequencyCharge(Integer frequencyCharge) {
+		this.frequencyCharge = frequencyCharge;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the frequencyChargeType.
+	 * 
+	 * @return the frequencyChargeType return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.pffactory.common.enums.ItemPeriodTypeEnum"))
+    public ItemPeriodTypeEnum getFrequencyChargeType() {
+		/* Begin: Custom Code */
+        return this.frequencyChargeType;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the frequencyChargeType.
+	 * 
+	 * @param frequencyChargeType
+	 *            the frequencyChargeType parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setFrequencyChargeType(ItemPeriodTypeEnum frequencyChargeType) {
+		this.frequencyChargeType = frequencyChargeType;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the iFile.
+	 * 
+	 * @return the iFile return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 20)
+    public String getIFile() {
+		/* Begin: Custom Code */
+        return this.iFile;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the iFile.
+	 * 
+	 * @param iFile
+	 *            the iFile parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setIFile(String iFile) {
+		this.iFile = iFile;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the iFileFlag.
+	 * 
+	 * @return the iFileFlag return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public Boolean getIFileFlag() {
+		/* Begin: Custom Code */
+        return this.iFileFlag;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the iFileFlag.
+	 * 
+	 * @param iFileFlag
+	 *            the iFileFlag parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setIFileFlag(Boolean iFileFlag) {
+		this.iFileFlag = iFileFlag;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the familiyProduct.
+	 * 
+	 * @return the familiyProduct return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 10)
+    public String getFamiliyProduct() {
+		/* Begin: Custom Code */
+        return this.familiyProduct;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the familiyProduct.
+	 * 
+	 * @param familiyProduct
+	 *            the familiyProduct parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setFamiliyProduct(String familiyProduct) {
+		this.familiyProduct = familiyProduct;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the entity.
+	 * 
+	 * @return Attribute that represents a bank entity, to filter the info that
+	 *         user can view..
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 4)
+    public String getEntity() {
+		/* Begin: Custom Code */
+        return this.entity;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the entity.
+	 * 
+	 * @param entity
+	 *            Attribute that represents a bank entity, to filter the info
+	 *            that user can view..
+	 * 
+	 * @generated
+	 */
+    public void setEntity(String entity) {
+		this.entity = entity;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the entity2.
+	 * 
+	 * @return Attribute that represents a bank sub-entity, to filter the info
+	 *         that user can view..
+	 * 
+	 * @generated
+	 */
+    @Column(length = 4)
+    public String getEntity2() {
+		/* Begin: Custom Code */
+        return this.entity2;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the entity2.
+	 * 
+	 * @param entity2
+	 *            Attribute that represents a bank sub-entity, to filter the
+	 *            info that user can view..
+	 * 
+	 * @generated
+	 */
+    public void setEntity2(String entity2) {
+		this.entity2 = entity2;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the dataVersion.
+	 * 
+	 * @return Auditory's attribute.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 10)
+    @Version
+    public Long getDataVersion() {
+		/* Begin: Custom Code */
+        return this.dataVersion;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the dataVersion.
+	 * 
+	 * @param dataVersion
+	 *            Auditory's attribute.
+	 * 
+	 * @generated
+	 */
+    public void setDataVersion(Long dataVersion) {
+		this.dataVersion = dataVersion;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the accountStatusCode.
+	 * 
+	 * @return Account Status-..
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public String getAccountStatusCode() {
+		/* Begin: Custom Code */
+        return this.accountStatusCode;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the accountStatusCode.
+	 * 
+	 * @param accountStatusCode
+	 *            Account Status-..
+	 * 
+	 * @generated
+	 */
+    public void setAccountStatusCode(String accountStatusCode) {
+		this.accountStatusCode = accountStatusCode;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the openingDate.
+	 * 
+	 * @return opening account date.
+	 * 
+	 * @generated
+	 */
+    public Date getOpeningDate() {
+		/* Begin: Custom Code */
+        return (this.openingDate == null) ? null : (Date) this.openingDate.clone();
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the openingDate.
+	 * 
+	 * @param openingDate
+	 *            opening account date.
+	 * 
+	 * @generated
+	 */
+    public void setOpeningDate(Date openingDate) {
+		this.openingDate = (openingDate == null) ? null : (Date) openingDate
+				.clone();
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the nextFeeCalculationDate.
+	 * 
+	 * @return Next Fee calculation Date of the account.
+	 * 
+	 * @generated
+	 */
+    public Date getNextFeeCalculationDate() {
+		/* Begin: Custom Code */
+        return (this.nextFeeCalculationDate == null) ? null : (Date) this.nextFeeCalculationDate.clone();
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the nextFeeCalculationDate.
+	 * 
+	 * @param nextFeeCalculationDate
+	 *            Next Fee calculation Date of the account.
+	 * 
+	 * @generated
+	 */
+    public void setNextFeeCalculationDate(Date nextFeeCalculationDate) {
+		this.nextFeeCalculationDate = (nextFeeCalculationDate == null) ? null
+				: (Date) nextFeeCalculationDate.clone();
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the basicProductVersion.
+	 * 
+	 * @return basic product version used by the contract.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 6)
+    public Long getBasicProductVersion() {
+		/* Begin: Custom Code */
+        return this.basicProductVersion;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the basicProductVersion.
+	 * 
+	 * @param basicProductVersion
+	 *            basic product version used by the contract.
+	 * 
+	 * @generated
+	 */
+    public void setBasicProductVersion(Long basicProductVersion) {
+		this.basicProductVersion = basicProductVersion;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the standardPricingPlan.
+	 * 
+	 * @return standard pricing plan.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 20)
+    public Long getStandardPricingPlan() {
+		/* Begin: Custom Code */
+        return this.standardPricingPlan;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the standardPricingPlan.
+	 * 
+	 * @param standardPricingPlan
+	 *            standard pricing plan.
+	 * 
+	 * @generated
+	 */
+    public void setStandardPricingPlan(Long standardPricingPlan) {
+		this.standardPricingPlan = standardPricingPlan;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the pricingPlan.
+	 * 
+	 * @return Pricing Plan.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 20)
+    public Long getPricingPlan() {
+		/* Begin: Custom Code */
+        return this.pricingPlan;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the pricingPlan.
+	 * 
+	 * @param pricingPlan
+	 *            Pricing Plan.
+	 * 
+	 * @generated
+	 */
+    public void setPricingPlan(Long pricingPlan) {
+		this.pricingPlan = pricingPlan;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the accountInterestPlan.
+	 * 
+	 * @return Account Interest Plan.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 20)
+    public Long getAccountInterestPlan() {
+		/* Begin: Custom Code */
+        return this.accountInterestPlan;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the accountInterestPlan.
+	 * 
+	 * @param accountInterestPlan
+	 *            Account Interest Plan.
+	 * 
+	 * @generated
+	 */
+    public void setAccountInterestPlan(Long accountInterestPlan) {
+		this.accountInterestPlan = accountInterestPlan;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the variationSpread.
+	 * 
+	 * @return variation spread.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 19, precision = 8)
+    public Double getVariationSpread() {
+		/* Begin: Custom Code */
+        return this.variationSpread;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the variationSpread.
+	 * 
+	 * @param variationSpread
+	 *            variation spread.
+	 * 
+	 * @generated
+	 */
+    public void setVariationSpread(Double variationSpread) {
+		this.variationSpread = variationSpread;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the standarChargePlan.
+	 * 
+	 * @return Standard Charge Plan.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 20)
+    public Long getStandarChargePlan() {
+		/* Begin: Custom Code */
+        return this.standarChargePlan;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the standarChargePlan.
+	 * 
+	 * @param standarChargePlan
+	 *            Standard Charge Plan.
+	 * 
+	 * @generated
+	 */
+    public void setStandarChargePlan(Long standarChargePlan) {
+		this.standarChargePlan = standarChargePlan;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the chargePlan.
+	 * 
+	 * @return Charge Plan.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 20)
+    public Long getChargePlan() {
+		/* Begin: Custom Code */
+        return this.chargePlan;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the chargePlan.
+	 * 
+	 * @param chargePlan
+	 *            Charge Plan.
+	 * 
+	 * @generated
+	 */
+    public void setChargePlan(Long chargePlan) {
+		this.chargePlan = chargePlan;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the accountFeePlan.
+	 * 
+	 * @return Account Fee Plan.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 20)
+    public Long getAccountFeePlan() {
+		/* Begin: Custom Code */
+        return this.accountFeePlan;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the accountFeePlan.
+	 * 
+	 * @param accountFeePlan
+	 *            Account Fee Plan.
+	 * 
+	 * @generated
+	 */
+    public void setAccountFeePlan(Long accountFeePlan) {
+		this.accountFeePlan = accountFeePlan;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the percentageVariation.
+	 * 
+	 * @return Percentage Variation.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 19, precision = 8)
+    public Double getPercentageVariation() {
+		/* Begin: Custom Code */
+        return this.percentageVariation;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the percentageVariation.
+	 * 
+	 * @param percentageVariation
+	 *            Percentage Variation.
+	 * 
+	 * @generated
+	 */
+    public void setPercentageVariation(Double percentageVariation) {
+		this.percentageVariation = percentageVariation;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the lastRenewalDate.
+	 * 
+	 * @return Last Renewal Date.
+	 * 
+	 * @generated
+	 */
+    public Date getLastRenewalDate() {
+		/* Begin: Custom Code */
+        return (this.lastRenewalDate == null) ? null : (Date) this.lastRenewalDate.clone();
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the lastRenewalDate.
+	 * 
+	 * @param lastRenewalDate
+	 *            Last Renewal Date.
+	 * 
+	 * @generated
+	 */
+    public void setLastRenewalDate(Date lastRenewalDate) {
+		this.lastRenewalDate = (lastRenewalDate == null) ? null
+				: (Date) lastRenewalDate.clone();
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the offeringId.
+	 * 
+	 * @return Offering Identifier. An offering can be a single or a bundle
+	 *         product..
+	 * 
+	 * @generated
+	 */
+    public OfferingID getOfferingId() {
+		/* Begin: Custom Code */
+        return this.offeringId;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the offeringId.
+	 * 
+	 * @param offeringId
+	 *            Offering Identifier. An offering can be a single or a bundle
+	 *            product..
+	 * 
+	 * @generated
+	 */
+    public void setOfferingId(OfferingID offeringId) {
+		this.offeringId = offeringId;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the basicProductID.
+	 * 
+	 * @return Unique identifier for a Basic Product. It can be filled or
+	 *         autogenerated.
+	 * 
+	 * @generated
+	 */
+    @AttributeOverrides({ @AttributeOverride(name = "entity", column = @Column(name = "basicProductEntity")) })
+    public BasicProductID getBasicProductID() {
+		/* Begin: Custom Code */
+        return this.basicProductID;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the basicProductID.
+	 * 
+	 * @param basicProductID
+	 *            Unique identifier for a Basic Product. It can be filled or
+	 *            autogenerated.
+	 * 
+	 * @generated
+	 */
+    public void setBasicProductID(BasicProductID basicProductID) {
+		this.basicProductID = basicProductID;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the internalContractNumber.
+	 * 
+	 * @return Account number in the system.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 20)
+    public String getInternalContractNumber() {
+		/* Begin: Custom Code */
+        return this.internalContractNumber;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the internalContractNumber.
+	 * 
+	 * @param internalContractNumber
+	 *            Account number in the system.
+	 * 
+	 * @generated
+	 */
+    public void setInternalContractNumber(String internalContractNumber) {
+		this.internalContractNumber = internalContractNumber;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the externalContractNumber.
+	 * 
+	 * @return Account number managed in order to be adapted to the
+	 *         Entity/System requirements for showing in the GUI..
+	 * 
+	 * @generated
+	 */
+    @Column(length = 20)
+    public String getExternalContractNumber() {
+		/* Begin: Custom Code */
+        return this.externalContractNumber;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the externalContractNumber.
+	 * 
+	 * @param externalContractNumber
+	 *            Account number managed in order to be adapted to the
+	 *            Entity/System requirements for showing in the GUI..
+	 * 
+	 * @generated
+	 */
+    public void setExternalContractNumber(String externalContractNumber) {
+		this.externalContractNumber = externalContractNumber;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the priceBehaviour.
+	 * 
+	 * @return the priceBehaviour return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 20)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.pffactory.common.enums.PriceBehaviourEnum"))
+    public PriceBehaviourEnum getPriceBehaviour() {
+		/* Begin: Custom Code */
+        return this.priceBehaviour;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the priceBehaviour.
+	 * 
+	 * @param priceBehaviour
+	 *            the priceBehaviour parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setPriceBehaviour(PriceBehaviourEnum priceBehaviour) {
+		this.priceBehaviour = priceBehaviour;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the contractBalance.
+	 * 
+	 * @return the contractBalance return value.
+	 * 
+	 * @generated
+	 */
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "contractDetails")
+    public ContractBalance getContractBalance() {
+		/* Begin: Custom Code */
+        return this.contractBalance;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the contractBalance.
+	 * 
+	 * @param contractBalance
+	 *            the contractBalance parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setContractBalance(ContractBalance contractBalance) {
+		this.contractBalance = contractBalance;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the contractIndicator.
+	 * 
+	 * @return the contractIndicator return value.
+	 * 
+	 * @generated
+	 */
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "contractDetails")
+    public ContractIndicator getContractIndicator() {
+		/* Begin: Custom Code */
+        return this.contractIndicator;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the contractIndicator.
+	 * 
+	 * @param contractIndicator
+	 *            the contractIndicator parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setContractIndicator(ContractIndicator contractIndicator) {
+		this.contractIndicator = contractIndicator;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the lastFeeCalculationDate.
+	 * 
+	 * @return Next Fee calculation Date of the account.
+	 * 
+	 * @generated
+	 */
+    public Date getLastFeeCalculationDate() {
+		/* Begin: Custom Code */
+        return (this.lastFeeCalculationDate == null) ? null : (Date) this.lastFeeCalculationDate.clone();
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the lastFeeCalculationDate.
+	 * 
+	 * @param lastFeeCalculationDate
+	 *            Next Fee calculation Date of the account.
+	 * 
+	 * @generated
+	 */
+    public void setLastFeeCalculationDate(Date lastFeeCalculationDate) {
+		this.lastFeeCalculationDate = (lastFeeCalculationDate == null) ? null
+				: (Date) lastFeeCalculationDate.clone();
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the contractCustomer.
+	 * 
+	 * @return the contractCustomer return value.
+	 * 
+	 * @generated
+	 */
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "contractDetails")
+    public ContractCustomer getContractCustomer() {
+		/* Begin: Custom Code */
+        return this.contractCustomer;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the contractCustomer.
+	 * 
+	 * @param contractCustomer
+	 *            the contractCustomer parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setContractCustomer(ContractCustomer contractCustomer) {
+		this.contractCustomer = contractCustomer;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the mainProduct.
+	 * 
+	 * @return the mainProduct return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public Boolean getMainProduct() {
+		/* Begin: Custom Code */
+        return this.mainProduct;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the mainProduct.
+	 * 
+	 * @param mainProduct
+	 *            the mainProduct parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setMainProduct(Boolean mainProduct) {
+		this.mainProduct = mainProduct;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the fechaEmpaquetamiento.
+	 * 
+	 * @return the fechaEmpaquetamiento return value.
+	 * 
+	 * @generated
+	 */
+	public Date getFechaEmpaquetamiento() {
+		/* Begin: Custom Code */
+		return (this.fechaEmpaquetamiento == null) ? null
+				: (Date) this.fechaEmpaquetamiento.clone();
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the fechaEmpaquetamiento.
+	 * 
+	 * @param fechaEmpaquetamiento
+	 *            the fechaEmpaquetamiento parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setFechaEmpaquetamiento(Date fechaEmpaquetamiento) {
+		this.fechaEmpaquetamiento = (fechaEmpaquetamiento == null) ? null
+				: (Date) fechaEmpaquetamiento.clone();
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the monitoreoMensual.
+	 * 
+	 * @return the monitoreoMensual return value.
+	 * 
+	 * @generated
+	 */
+	@OneToMany(mappedBy = "contractDetails")
+	public Set<MonitoreoMensual> getMonitoreoMensual() {
+		/* Begin: Custom Code */
+		return this.monitoreoMensual;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the monitoreoMensual.
+	 * 
+	 * @param monitoreoMensual
+	 *            the monitoreoMensual parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setMonitoreoMensual(Set<MonitoreoMensual> monitoreoMensual) {
+		this.monitoreoMensual = monitoreoMensual;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the catClavesEmp.
+	 * 
+	 * @return the catClavesEmp return value.
+	 * 
+	 * @generated
+	 */
+	@ManyToOne
+	@JoinColumn(name = "clavesEmp_id", referencedColumnName = "clave")
+	public CatClavesEmp getCatClavesEmp() {
+		/* Begin: Custom Code */
+		return this.catClavesEmp;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the catClavesEmp.
+	 * 
+	 * @param catClavesEmp
+	 *            the catClavesEmp parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setCatClavesEmp(CatClavesEmp catClavesEmp) {
+		this.catClavesEmp = catClavesEmp;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the bonificaciones.
+	 * 
+	 * @return the bonificaciones return value.
+	 * 
+	 * @generated
+	 */
+	@OneToMany(mappedBy = "contractDetails")
+	public Set<Bonificaciones> getBonificaciones() {
+		/* Begin: Custom Code */
+		return this.bonificaciones;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the bonificaciones.
+	 * 
+	 * @param bonificaciones
+	 *            the bonificaciones parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setBonificaciones(Set<Bonificaciones> bonificaciones) {
+		this.bonificaciones = bonificaciones;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the camposPrestamos.
+	 * 
+	 * @return the camposPrestamos return value.
+	 * 
+	 * @generated
+	 */
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "contractDetails")
+	public CamposPrestamos getCamposPrestamos() {
+		/* Begin: Custom Code */
+		return this.camposPrestamos;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the camposPrestamos.
+	 * 
+	 * @param camposPrestamos
+	 *            the camposPrestamos parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setCamposPrestamos(CamposPrestamos camposPrestamos) {
+		this.camposPrestamos = camposPrestamos;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the camposTarjetas.
+	 * 
+	 * @return the camposTarjetas return value.
+	 * 
+	 * @generated
+	 */
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "contractDetails")
+	public CamposTarjetas getCamposTarjetas() {
+		/* Begin: Custom Code */
+		return this.camposTarjetas;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the camposTarjetas.
+	 * 
+	 * @param camposTarjetas
+	 *            the camposTarjetas parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setCamposTarjetas(CamposTarjetas camposTarjetas) {
+		this.camposTarjetas = camposTarjetas;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the camposCaptacion.
+	 * 
+	 * @return the camposCaptacion return value.
+	 * 
+	 * @generated
+	 */
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "contractDetails")
+	public CamposCaptacion getCamposCaptacion() {
+		/* Begin: Custom Code */
+		return this.camposCaptacion;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the camposCaptacion.
+	 * 
+	 * @param camposCaptacion
+	 *            the camposCaptacion parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setCamposCaptacion(CamposCaptacion camposCaptacion) {
+		this.camposCaptacion = camposCaptacion;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the PCT.
+	 * 
+	 * @return the PCT return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 3)
+	public String getPCT() {
+		/* Begin: Custom Code */
+		return this.PCT;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the PCT.
+	 * 
+	 * @param PCT
+	 *            the PCT parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setPCT(String PCT) {
+		this.PCT = PCT;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the historyId.
+	 * 
+	 * @return the historyId return value.
+	 * 
+	 * @generated
+	 */
+	
+	@Column(length = 0, precision = 200)
+	public Integer getHistoryId() {
+		/* Begin: Custom Code */
+		return this.historyId;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the historyId.
+	 * 
+	 * @param historyId
+	 *            the historyId parameter variable.
+	 * 
+	 * @generated
+	 */
+	
+	public void setHistoryId(Integer historyId) {
+		this.historyId = historyId;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+	/**
+	 * Retrieves the interestFlag.
+	 * 
+	 * @return the interestFlag return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 1)
+	public Boolean getInterestFlag() {
+		/* Begin: Custom Code */
+		return this.interestFlag;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the interestFlag.
+	 * 
+	 * @param interestFlag
+	 *            the interestFlag parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setInterestFlag(Boolean interestFlag) {
+		this.interestFlag = interestFlag;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the modificationFlag.
+	 * 
+	 * @return the modificationFlag return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 1)
+	public Boolean getModificationFlag() {
+		/* Begin: Custom Code */
+		return this.modificationFlag;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the modificationFlag.
+	 * 
+	 * @param modificationFlag
+	 *            the modificationFlag parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setModificationFlag(Boolean modificationFlag) {
+		this.modificationFlag = modificationFlag;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the codigoMaestro.
+	 * 
+	 * @return the codigoMaestro return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 20)
+	public String getCodigoMaestro() {
+		/* Begin: Custom Code */
+		return this.codigoMaestro;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the codigoMaestro.
+	 * 
+	 * @param codigoMaestro
+	 *            the codigoMaestro parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setCodigoMaestro(String codigoMaestro) {
+		this.codigoMaestro = codigoMaestro;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the chargeFlag.
+	 * 
+	 * @return the chargeFlag return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 1)
+	public Boolean getChargeFlag() {
+		/* Begin: Custom Code */
+		return this.chargeFlag;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the chargeFlag.
+	 * 
+	 * @param chargeFlag
+	 *            the chargeFlag parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setChargeFlag(Boolean chargeFlag) {
+		this.chargeFlag = chargeFlag;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the tdcReclasificada.
+	 * 
+	 * @return Account number in the system.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 20)
+	public String getTdcReclasificada() {
+		/* Begin: Custom Code */
+		return this.tdcReclasificada;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the tdcReclasificada.
+	 * 
+	 * @param tdcReclasificada
+	 *            Account number in the system.
+	 * 
+	 * @generated
+	 */
+	public void setTdcReclasificada(String tdcReclasificada) {
+		this.tdcReclasificada = tdcReclasificada;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the anualidad.
+	 * 
+	 * @return Parameter to calculate an charge value for a charge condition.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 17, precision = 2)
+	public Double getAnualidad() {
+		/* Begin: Custom Code */
+		return this.anualidad;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the anualidad.
+	 * 
+	 * @param anualidad
+	 *            Parameter to calculate an charge value for a charge condition.
+	 * 
+	 * @generated
+	 */
+	public void setAnualidad(Double anualidad) {
+		this.anualidad = anualidad;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the dateFrom.
+	 * 
+	 * @return the dateFrom return value.
+	 * 
+	 * @generated
+	 */
+	public Date getDateFrom() {
+		/* Begin: Custom Code */
+		return (this.dateFrom == null) ? null : (Date) this.dateFrom.clone();
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the dateFrom.
+	 * 
+	 * @param dateFrom
+	 *            the dateFrom parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setDateFrom(Date dateFrom) {
+		this.dateFrom = (dateFrom == null) ? null : (Date) dateFrom.clone();
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Method to generate hash code value of each attribute.
+	 * 
+	 * @return a hash code value for this object.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public int hashCode() {
+		int result = super.hashCode();
+		result = ContractDetails.PRIME_NUMBER_HASHCODE * result
+				+ ((this.id == null) ? 0 : this.id.hashCode());
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return result;
+	}
+
+    /**
+	 * Indicates whether some other object is "equal to" this one.
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare.
+	 * @return true if this object is the same as the obj argument; false
+	 *         otherwise.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		ContractDetails other = (ContractDetails) obj;
+		if (this.id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else if (!this.id.equals(other.id)) {
+			return false;
+		}
+		if (this.dateFrom == null) {
+			if (other.dateFrom != null) {
+				return false;
+			}
+		} else if (!this.dateFrom.equals(other.dateFrom)) {
+			return false;
+		}
+		if (this.currency != other.currency) {
+			return false;
+		}
+		if (this.frequencyCharge == null) {
+			if (other.frequencyCharge != null) {
+				return false;
+			}
+		} else if (!this.frequencyCharge.equals(other.frequencyCharge)) {
+			return false;
+		}
+		if (this.frequencyChargeType != other.frequencyChargeType) {
+			return false;
+		}
+		if (this.iFile == null) {
+			if (other.iFile != null) {
+				return false;
+			}
+		} else if (!this.iFile.equals(other.iFile)) {
+			return false;
+		}
+		if (this.iFileFlag == null) {
+			if (other.iFileFlag != null) {
+				return false;
+			}
+		} else if (!this.iFileFlag.equals(other.iFileFlag)) {
+			return false;
+		}
+		if (this.familiyProduct == null) {
+			if (other.familiyProduct != null) {
+				return false;
+			}
+		} else if (!this.familiyProduct.equals(other.familiyProduct)) {
+			return false;
+		}
+		if (this.entity == null) {
+			if (other.entity != null) {
+				return false;
+			}
+		} else if (!this.entity.equals(other.entity)) {
+			return false;
+		}
+		if (this.entity2 == null) {
+			if (other.entity2 != null) {
+				return false;
+			}
+		} else if (!this.entity2.equals(other.entity2)) {
+			return false;
+		}
+		if (this.dataVersion == null) {
+			if (other.dataVersion != null) {
+				return false;
+			}
+		} else if (!this.dataVersion.equals(other.dataVersion)) {
+			return false;
+		}
+		if (this.accountStatusCode == null) {
+			if (other.accountStatusCode != null) {
+				return false;
+			}
+		} else if (!this.accountStatusCode.equals(other.accountStatusCode)) {
+			return false;
+		}
+		if (this.openingDate == null) {
+			if (other.openingDate != null) {
+				return false;
+			}
+		} else if (!this.openingDate.equals(other.openingDate)) {
+			return false;
+		}
+		if (this.nextFeeCalculationDate == null) {
+			if (other.nextFeeCalculationDate != null) {
+				return false;
+			}
+		} else if (!this.nextFeeCalculationDate
+				.equals(other.nextFeeCalculationDate)) {
+			return false;
+		}
+		if (this.basicProductVersion == null) {
+			if (other.basicProductVersion != null) {
+				return false;
+			}
+		} else if (!this.basicProductVersion.equals(other.basicProductVersion)) {
+			return false;
+		}
+		if (this.standardPricingPlan == null) {
+			if (other.standardPricingPlan != null) {
+				return false;
+			}
+		} else if (!this.standardPricingPlan.equals(other.standardPricingPlan)) {
+			return false;
+		}
+		if (this.pricingPlan == null) {
+			if (other.pricingPlan != null) {
+				return false;
+			}
+		} else if (!this.pricingPlan.equals(other.pricingPlan)) {
+			return false;
+		}
+		if (this.accountInterestPlan == null) {
+			if (other.accountInterestPlan != null) {
+				return false;
+			}
+		} else if (!this.accountInterestPlan.equals(other.accountInterestPlan)) {
+			return false;
+		}
+		if (this.variationSpread == null) {
+			if (other.variationSpread != null) {
+				return false;
+			}
+		} else if (!this.variationSpread.equals(other.variationSpread)) {
+			return false;
+		}
+		if (this.standarChargePlan == null) {
+			if (other.standarChargePlan != null) {
+				return false;
+			}
+		} else if (!this.standarChargePlan.equals(other.standarChargePlan)) {
+			return false;
+		}
+		if (this.chargePlan == null) {
+			if (other.chargePlan != null) {
+				return false;
+			}
+		} else if (!this.chargePlan.equals(other.chargePlan)) {
+			return false;
+		}
+		if (this.accountFeePlan == null) {
+			if (other.accountFeePlan != null) {
+				return false;
+			}
+		} else if (!this.accountFeePlan.equals(other.accountFeePlan)) {
+			return false;
+		}
+		if (this.percentageVariation == null) {
+			if (other.percentageVariation != null) {
+				return false;
+			}
+		} else if (!this.percentageVariation.equals(other.percentageVariation)) {
+			return false;
+		}
+		if (this.lastRenewalDate == null) {
+			if (other.lastRenewalDate != null) {
+				return false;
+			}
+		} else if (!this.lastRenewalDate.equals(other.lastRenewalDate)) {
+			return false;
+		}
+		if (this.offeringId == null) {
+			if (other.offeringId != null) {
+				return false;
+			}
+		} else if (!this.offeringId.equals(other.offeringId)) {
+			return false;
+		}
+		if (this.basicProductID == null) {
+			if (other.basicProductID != null) {
+				return false;
+			}
+		} else if (!this.basicProductID.equals(other.basicProductID)) {
+			return false;
+		}
+		if (this.internalContractNumber == null) {
+			if (other.internalContractNumber != null) {
+				return false;
+			}
+		} else if (!this.internalContractNumber
+				.equals(other.internalContractNumber)) {
+			return false;
+		}
+		if (this.externalContractNumber == null) {
+			if (other.externalContractNumber != null) {
+				return false;
+			}
+		} else if (!this.externalContractNumber
+				.equals(other.externalContractNumber)) {
+			return false;
+		}
+		if (this.priceBehaviour != other.priceBehaviour) {
+			return false;
+		}
+		if (this.contractBalance == null) {
+			if (other.contractBalance != null) {
+				return false;
+			}
+		} else if (!this.contractBalance.equals(other.contractBalance)) {
+			return false;
+		}
+		if (this.contractIndicator == null) {
+			if (other.contractIndicator != null) {
+				return false;
+			}
+		} else if (!this.contractIndicator.equals(other.contractIndicator)) {
+			return false;
+		}
+		if (this.lastFeeCalculationDate == null) {
+			if (other.lastFeeCalculationDate != null) {
+				return false;
+			}
+		} else if (!this.lastFeeCalculationDate
+				.equals(other.lastFeeCalculationDate)) {
+			return false;
+		}
+		if (this.contractCustomer == null) {
+			if (other.contractCustomer != null) {
+				return false;
+			}
+		} else if (!this.contractCustomer.equals(other.contractCustomer)) {
+			return false;
+		}
+		if (this.mainProduct == null) {
+			if (other.mainProduct != null) {
+				return false;
+			}
+		} else if (!this.mainProduct.equals(other.mainProduct)) {
+			return false;
+		}
+		if (this.fechaEmpaquetamiento == null) {
+			if (other.fechaEmpaquetamiento != null) {
+				return false;
+			}
+		} else if (!this.fechaEmpaquetamiento
+				.equals(other.fechaEmpaquetamiento)) {
+			return false;
+		}
+		if (this.monitoreoMensual == null) {
+			if (other.monitoreoMensual != null) {
+				return false;
+			}
+		} else if (!this.monitoreoMensual.equals(other.monitoreoMensual)) {
+			return false;
+		}
+		if (this.catClavesEmp == null) {
+			if (other.catClavesEmp != null) {
+				return false;
+			}
+		} else if (!this.catClavesEmp.equals(other.catClavesEmp)) {
+			return false;
+		}
+		if (this.bonificaciones == null) {
+			if (other.bonificaciones != null) {
+				return false;
+			}
+		} else if (!this.bonificaciones.equals(other.bonificaciones)) {
+			return false;
+		}
+		if (this.camposPrestamos == null) {
+			if (other.camposPrestamos != null) {
+				return false;
+			}
+		} else if (!this.camposPrestamos.equals(other.camposPrestamos)) {
+			return false;
+		}
+		if (this.camposTarjetas == null) {
+			if (other.camposTarjetas != null) {
+				return false;
+			}
+		} else if (!this.camposTarjetas.equals(other.camposTarjetas)) {
+			return false;
+		}
+		if (this.camposCaptacion == null) {
+			if (other.camposCaptacion != null) {
+				return false;
+			}
+		} else if (!this.camposCaptacion.equals(other.camposCaptacion)) {
+			return false;
+		}
+		if (this.PCT == null) {
+			if (other.PCT != null) {
+				return false;
+			}
+		} else if (!this.PCT.equals(other.PCT)) {
+			return false;
+		}
+		if (this.historyId == null) {
+			if (other.historyId != null) {
+				return false;
+			}
+		} else if (!this.historyId.equals(other.historyId)) {
+			return false;
+		}
+		if (this.interestFlag == null) {
+			if (other.interestFlag != null) {
+				return false;
+			}
+		} else if (!this.interestFlag.equals(other.interestFlag)) {
+			return false;
+		}
+		if (this.modificationFlag == null) {
+			if (other.modificationFlag != null) {
+				return false;
+			}
+		} else if (!this.modificationFlag.equals(other.modificationFlag)) {
+			return false;
+		}
+		if (this.codigoMaestro == null) {
+			if (other.codigoMaestro != null) {
+				return false;
+			}
+		} else if (!this.codigoMaestro.equals(other.codigoMaestro)) {
+			return false;
+		}
+		if (this.chargeFlag == null) {
+			if (other.chargeFlag != null) {
+				return false;
+			}
+		} else if (!this.chargeFlag.equals(other.chargeFlag)) {
+			return false;
+		}
+		if (this.tdcReclasificada == null) {
+			if (other.tdcReclasificada != null) {
+				return false;
+			}
+		} else if (!this.tdcReclasificada.equals(other.tdcReclasificada)) {
+			return false;
+		}
+		if (this.anualidad == null) {
+			if (other.anualidad != null) {
+				return false;
+			}
+		} else if (!this.anualidad.equals(other.anualidad)) {
+			return false;
+		}
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return true;
+	}
+}

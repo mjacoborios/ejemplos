@@ -1,0 +1,393 @@
+/**********************************************************************************************************************
+ * Copyright Â© 2010 - 2015, Accenture Software, All Rights Reserved.
+ * 
+ * Project Name:    PF_FACTORY_BH_SERVICES
+ *
+ * Description:     pff Business Hub Services project contains entity data and 
+ *                  implements both the business logic and the access layer with external systems  
+ *                  (databases, external legacies through ESB, etc.) of pff application
+ *
+ * Application:     Product and Fee Factory
+ * 
+ * Company:         Accenture 
+ * 
+ * The trademarks used in these materials are the properties of their respective owners.
+ * This work is protected by copyright law and contains valuable trade secrets and confidential information.
+ **********************************************************************************************************************
+ */
+package com.accenture.ang.pffactory.referencial.entity.pricingdwh;
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.Digits;
+
+/**
+ * A Class representation of the 'MonitoreoMensual' model object.
+ * 
+ * @generated
+ */
+@Entity(name = "pff_monitoreomensual")
+public class MonitoreoMensual implements Serializable {
+	/**
+	 * Default serial version UID.
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Member variable for Prime Number Hashcode.
+	 */
+	private static final int PRIME_NUMBER_HASHCODE = 31;
+
+	/**
+	 * The idMonitoreoMensual attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 20, fraction = 0)
+	private Long idMonitoreoMensual;
+
+	/**
+	 * The numComprasRealizadas attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 200, fraction = 0)
+	private Integer numComprasRealizadas;
+
+	/**
+	 * The pagoBxI attribute.
+	 * 
+	 * @generated
+	 */
+	private Boolean pagoBxI;
+
+	/**
+	 * The numPagosVencidosMes attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 200, fraction = 0)
+	private Integer numPagosVencidosMes;
+
+	/**
+	 * The contractDetails attribute.
+	 * 
+	 * @generated
+	 */
+	private ContractDetails contractDetails;
+
+	/**
+	 * The inicioCorte attribute.
+	 * 
+	 * @generated
+	 */
+	private Date inicioCorte;
+
+	/**
+	 * The finCorte attribute.
+	 * 
+	 * @generated
+	 */
+	private Date finCorte;
+
+	/**
+	 * Retrieves the idMonitoreoMensual.
+	 * 
+	 * @return the idMonitoreoMensual return value.
+	 * 
+	 * @generated
+	 */
+	@Column(nullable = false, length = 0, precision = 20)
+	@Id
+	public Long getIdMonitoreoMensual() {
+		/* Begin: Custom Code */
+		return this.idMonitoreoMensual;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the idMonitoreoMensual.
+	 * 
+	 * @param idMonitoreoMensual
+	 *            the idMonitoreoMensual parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setIdMonitoreoMensual(Long idMonitoreoMensual) {
+		this.idMonitoreoMensual = idMonitoreoMensual;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the numComprasRealizadas.
+	 * 
+	 * @return the numComprasRealizadas return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 0, precision = 200)
+	public Integer getNumComprasRealizadas() {
+		/* Begin: Custom Code */
+		return this.numComprasRealizadas;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the numComprasRealizadas.
+	 * 
+	 * @param numComprasRealizadas
+	 *            the numComprasRealizadas parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setNumComprasRealizadas(Integer numComprasRealizadas) {
+		this.numComprasRealizadas = numComprasRealizadas;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the pagoBxI.
+	 * 
+	 * @return the pagoBxI return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 0)
+	public Boolean getPagoBxI() {
+		/* Begin: Custom Code */
+		return this.pagoBxI;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the pagoBxI.
+	 * 
+	 * @param pagoBxI
+	 *            the pagoBxI parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setPagoBxI(Boolean pagoBxI) {
+		this.pagoBxI = pagoBxI;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the numPagosVencidosMes.
+	 * 
+	 * @return the numPagosVencidosMes return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 0, precision = 200)
+	public Integer getNumPagosVencidosMes() {
+		/* Begin: Custom Code */
+		return this.numPagosVencidosMes;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the numPagosVencidosMes.
+	 * 
+	 * @param numPagosVencidosMes
+	 *            the numPagosVencidosMes parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setNumPagosVencidosMes(Integer numPagosVencidosMes) {
+		this.numPagosVencidosMes = numPagosVencidosMes;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the contractDetails.
+	 * 
+	 * @return the contractDetails return value.
+	 * 
+	 * @generated
+	 */
+	@ManyToOne
+	@JoinColumn(name = "contractDetails_id", referencedColumnName = "id")
+	public ContractDetails getContractDetails() {
+		/* Begin: Custom Code */
+		return this.contractDetails;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the contractDetails.
+	 * 
+	 * @param contractDetails
+	 *            the contractDetails parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setContractDetails(ContractDetails contractDetails) {
+		this.contractDetails = contractDetails;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the inicioCorte.
+	 * 
+	 * @return the inicioCorte return value.
+	 * 
+	 * @generated
+	 */
+	public Date getInicioCorte() {
+		/* Begin: Custom Code */
+		return (this.inicioCorte == null) ? null : (Date) this.inicioCorte
+				.clone();
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the inicioCorte.
+	 * 
+	 * @param inicioCorte
+	 *            the inicioCorte parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setInicioCorte(Date inicioCorte) {
+		this.inicioCorte = (inicioCorte == null) ? null : (Date) inicioCorte
+				.clone();
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the finCorte.
+	 * 
+	 * @return the finCorte return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 0)
+	public Date getFinCorte() {
+		/* Begin: Custom Code */
+		return (this.finCorte == null) ? null : (Date) this.finCorte.clone();
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the finCorte.
+	 * 
+	 * @param finCorte
+	 *            the finCorte parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setFinCorte(Date finCorte) {
+		this.finCorte = (finCorte == null) ? null : (Date) finCorte.clone();
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Method to generate hash code value of each attribute.
+	 * 
+	 * @return a hash code value for this object.
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int hashCode() {
+		int result = 1;
+		result = MonitoreoMensual.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.idMonitoreoMensual == null) ? 0
+						: this.idMonitoreoMensual.hashCode());
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+		return result;
+	}
+
+	/**
+	 * Indicates whether some other object is "equal to" this one.
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare.
+	 * @return true if this object is the same as the obj argument; false
+	 *         otherwise.
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		MonitoreoMensual other = (MonitoreoMensual) obj;
+		if (this.idMonitoreoMensual == null) {
+			if (other.idMonitoreoMensual != null) {
+				return false;
+			}
+		} else if (!this.idMonitoreoMensual.equals(other.idMonitoreoMensual)) {
+			return false;
+		}
+		if (this.numComprasRealizadas == null) {
+			if (other.numComprasRealizadas != null) {
+				return false;
+			}
+		} else if (!this.numComprasRealizadas
+				.equals(other.numComprasRealizadas)) {
+			return false;
+		}
+		if (this.pagoBxI == null) {
+			if (other.pagoBxI != null) {
+				return false;
+			}
+		} else if (!this.pagoBxI.equals(other.pagoBxI)) {
+			return false;
+		}
+		if (this.numPagosVencidosMes == null) {
+			if (other.numPagosVencidosMes != null) {
+				return false;
+			}
+		} else if (!this.numPagosVencidosMes.equals(other.numPagosVencidosMes)) {
+			return false;
+		}
+		if (this.contractDetails == null) {
+			if (other.contractDetails != null) {
+				return false;
+			}
+		} else if (!this.contractDetails.equals(other.contractDetails)) {
+			return false;
+		}
+		if (this.inicioCorte == null) {
+			if (other.inicioCorte != null) {
+				return false;
+			}
+		} else if (!this.inicioCorte.equals(other.inicioCorte)) {
+			return false;
+		}
+		if (this.finCorte == null) {
+			if (other.finCorte != null) {
+				return false;
+			}
+		} else if (!this.finCorte.equals(other.finCorte)) {
+			return false;
+		}
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+		return true;
+	}
+}
+

@@ -1,0 +1,1029 @@
+/**********************************************************************************************************************
+ * Copyright Â© 2010 - 2013, Accenture Software, All Rights Reserved.
+ * 
+ * Project Name: PF_FACTORY_BH_SERVICES
+ * 
+ * Description: pff Business Hub Services project contains entity data and implements both the business logic and the
+ * access layer with external systems (databases, external legacies through ESB, etc.) of pff application
+ * 
+ * Application: Product and Fee Factory
+ * 
+ * Company: Accenture.
+ * 
+ * The trademarks used in these materials are the properties of their respective owners. This work is protected by
+ * copyright law and contains valuable trade secrets and confidential information.
+ ********************************************************************************************************************** 
+ */
+package com.accenture.ang.pffactory.referencial.entity.pricingdwh;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
+
+import com.accenture.ang.common.referencial.audit.AuditEntity;
+import com.accenture.ang.pffactory.common.enums.ClauseTypeEnum;
+import com.accenture.ang.pffactory.common.enums.ContractStatusEnum;
+import com.accenture.ang.pffactory.common.enums.LinkedAccountEnum;
+import com.accenture.ang.pffactory.common.enums.LoanStatusEnum;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+
+/**
+ * Contract indicators.
+ * 
+ * @generated
+ */
+@Entity(name = "pff_contractindicator")
+public class ContractIndicator extends AuditEntity implements Serializable {
+    /**
+     * Default serial version UID.
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * Member variable for Prime Number Hashcode.
+     */
+    private static final int PRIME_NUMBER_HASHCODE = 31;
+
+    /**
+	 * The id attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long id;
+
+    /**
+	 * Transaction Number.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 18, fraction = 0)
+    private Integer transactionNumber;
+
+    /**
+	 * Direct Debit Number.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 18, fraction = 0)
+    private Integer directDebitNumber;
+
+    /**
+	 * The userIndicator1 attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 255)
+    private String userIndicator1;
+
+    /**
+	 * The userIndicator2 attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 255)
+    private String userIndicator2;
+
+    /**
+	 * The userIndicator3 attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 255)
+    private String userIndicator3;
+
+    /**
+	 * The userIndicator4 attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 255)
+    private String userIndicator4;
+
+    /**
+	 * The userIndicator5 attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 255)
+    private String userIndicator5;
+
+    /**
+	 * The loanstatus attribute.
+	 * 
+	 * @generated
+	 */
+    private LoanStatusEnum loanstatus;
+
+    /**
+	 * The tax attribute.
+	 * 
+	 * @generated
+	 */
+    private Boolean tax;
+
+    /**
+	 * The indicatorspecialproduct attribute.
+	 * 
+	 * @generated
+	 */
+    private Boolean indicatorspecialproduct;
+
+    /**
+	 * The pensioneraccount attribute.
+	 * 
+	 * @generated
+	 */
+    private Boolean pensioneraccount;
+
+    /**
+	 * The employee attribute.
+	 * 
+	 * @generated
+	 */
+    private Boolean employee;
+
+    /**
+	 * The blocked attribute.
+	 * 
+	 * @generated
+	 */
+    private Boolean blocked;
+
+    /**
+	 * The contractstatus attribute.
+	 * 
+	 * @generated
+	 */
+    private ContractStatusEnum contractstatus;
+
+    /**
+	 * The authorizedexceeded attribute.
+	 * 
+	 * @generated
+	 */
+    private Boolean authorizedexceeded;
+
+    /**
+	 * The status attribute.
+	 * 
+	 * @generated
+	 */
+    private Boolean status;
+
+    /**
+	 * The interestgroup attribute.
+	 * 
+	 * @generated
+	 */
+    private Boolean interestgroup;
+
+    /**
+	 * The feegroup attribute.
+	 * 
+	 * @generated
+	 */
+    private Boolean feegroup;
+
+    /**
+	 * The linkedaccount attribute.
+	 * 
+	 * @generated
+	 */
+    private LinkedAccountEnum linkedaccount;
+
+    /**
+	 * The clausetype attribute.
+	 * 
+	 * @generated
+	 */
+    private ClauseTypeEnum clausetype;
+
+    /**
+	 * The contractDetails attribute.
+	 * 
+	 * @generated
+	 */
+//    @JsonIgnore
+    private ContractDetails contractDetails;
+
+    /**
+	 * Retrieves the id.
+	 * 
+	 * @return the id return value.
+	 * 
+	 * @generated
+	 */
+    @SequenceGenerator(name = "id_sequence", sequenceName = "SEQ_PFF_CUSTOMERINDICATOR")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "id_sequence")
+	@Column(nullable = false, length = 0, precision = 20)
+    @Id
+    public Long getId() {
+		/* Begin: Custom Code */
+        return this.id;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the id.
+	 * 
+	 * @param id
+	 *            the id parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setId(Long id) {
+		this.id = id;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the transactionNumber.
+	 * 
+	 * @return Transaction Number.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18)
+    public Integer getTransactionNumber() {
+		/* Begin: Custom Code */
+        return this.transactionNumber;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the transactionNumber.
+	 * 
+	 * @param transactionNumber
+	 *            Transaction Number.
+	 * 
+	 * @generated
+	 */
+    public void setTransactionNumber(Integer transactionNumber) {
+		this.transactionNumber = transactionNumber;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the directDebitNumber.
+	 * 
+	 * @return Direct Debit Number.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18)
+    public Integer getDirectDebitNumber() {
+		/* Begin: Custom Code */
+        return this.directDebitNumber;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the directDebitNumber.
+	 * 
+	 * @param directDebitNumber
+	 *            Direct Debit Number.
+	 * 
+	 * @generated
+	 */
+    public void setDirectDebitNumber(Integer directDebitNumber) {
+		this.directDebitNumber = directDebitNumber;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userIndicator1.
+	 * 
+	 * @return the userIndicator1 return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 255)
+    public String getUserIndicator1() {
+		/* Begin: Custom Code */
+        return this.userIndicator1;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userIndicator1.
+	 * 
+	 * @param userIndicator1
+	 *            the userIndicator1 parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setUserIndicator1(String userIndicator1) {
+		this.userIndicator1 = userIndicator1;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userIndicator2.
+	 * 
+	 * @return the userIndicator2 return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 255)
+    public String getUserIndicator2() {
+		/* Begin: Custom Code */
+        return this.userIndicator2;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userIndicator2.
+	 * 
+	 * @param userIndicator2
+	 *            the userIndicator2 parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setUserIndicator2(String userIndicator2) {
+		this.userIndicator2 = userIndicator2;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userIndicator3.
+	 * 
+	 * @return the userIndicator3 return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 255)
+    public String getUserIndicator3() {
+		/* Begin: Custom Code */
+        return this.userIndicator3;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userIndicator3.
+	 * 
+	 * @param userIndicator3
+	 *            the userIndicator3 parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setUserIndicator3(String userIndicator3) {
+		this.userIndicator3 = userIndicator3;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userIndicator4.
+	 * 
+	 * @return the userIndicator4 return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 255)
+    public String getUserIndicator4() {
+		/* Begin: Custom Code */
+        return this.userIndicator4;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userIndicator4.
+	 * 
+	 * @param userIndicator4
+	 *            the userIndicator4 parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setUserIndicator4(String userIndicator4) {
+		this.userIndicator4 = userIndicator4;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userIndicator5.
+	 * 
+	 * @return the userIndicator5 return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 255)
+    public String getUserIndicator5() {
+		/* Begin: Custom Code */
+        return this.userIndicator5;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userIndicator5.
+	 * 
+	 * @param userIndicator5
+	 *            the userIndicator5 parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setUserIndicator5(String userIndicator5) {
+		this.userIndicator5 = userIndicator5;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the loanstatus.
+	 * 
+	 * @return the loanstatus return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.pffactory.common.enums.LoanStatusEnum"))
+    public LoanStatusEnum getLoanstatus() {
+		/* Begin: Custom Code */
+        return this.loanstatus;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the loanstatus.
+	 * 
+	 * @param loanstatus
+	 *            the loanstatus parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setLoanstatus(LoanStatusEnum loanstatus) {
+		this.loanstatus = loanstatus;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the tax.
+	 * 
+	 * @return the tax return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public Boolean getTax() {
+		/* Begin: Custom Code */
+        return this.tax;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the tax.
+	 * 
+	 * @param tax
+	 *            the tax parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setTax(Boolean tax) {
+		this.tax = tax;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the indicatorspecialproduct.
+	 * 
+	 * @return the indicatorspecialproduct return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public Boolean getIndicatorspecialproduct() {
+		/* Begin: Custom Code */
+        return this.indicatorspecialproduct;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the indicatorspecialproduct.
+	 * 
+	 * @param indicatorspecialproduct
+	 *            the indicatorspecialproduct parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setIndicatorspecialproduct(Boolean indicatorspecialproduct) {
+		this.indicatorspecialproduct = indicatorspecialproduct;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the pensioneraccount.
+	 * 
+	 * @return the pensioneraccount return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public Boolean getPensioneraccount() {
+		/* Begin: Custom Code */
+        return this.pensioneraccount;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the pensioneraccount.
+	 * 
+	 * @param pensioneraccount
+	 *            the pensioneraccount parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setPensioneraccount(Boolean pensioneraccount) {
+		this.pensioneraccount = pensioneraccount;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the employee.
+	 * 
+	 * @return the employee return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public Boolean getEmployee() {
+		/* Begin: Custom Code */
+        return this.employee;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the employee.
+	 * 
+	 * @param employee
+	 *            the employee parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setEmployee(Boolean employee) {
+		this.employee = employee;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the blocked.
+	 * 
+	 * @return the blocked return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public Boolean getBlocked() {
+		/* Begin: Custom Code */
+        return this.blocked;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the blocked.
+	 * 
+	 * @param blocked
+	 *            the blocked parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setBlocked(Boolean blocked) {
+		this.blocked = blocked;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the contractstatus.
+	 * 
+	 * @return the contractstatus return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.pffactory.common.enums.ContractStatusEnum"))
+    public ContractStatusEnum getContractstatus() {
+		/* Begin: Custom Code */
+        return this.contractstatus;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the contractstatus.
+	 * 
+	 * @param contractstatus
+	 *            the contractstatus parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setContractstatus(ContractStatusEnum contractstatus) {
+		this.contractstatus = contractstatus;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the authorizedexceeded.
+	 * 
+	 * @return the authorizedexceeded return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public Boolean getAuthorizedexceeded() {
+		/* Begin: Custom Code */
+        return this.authorizedexceeded;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the authorizedexceeded.
+	 * 
+	 * @param authorizedexceeded
+	 *            the authorizedexceeded parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setAuthorizedexceeded(Boolean authorizedexceeded) {
+		this.authorizedexceeded = authorizedexceeded;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the status.
+	 * 
+	 * @return the status return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public Boolean getStatus() {
+		/* Begin: Custom Code */
+        return this.status;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the status.
+	 * 
+	 * @param status
+	 *            the status parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setStatus(Boolean status) {
+		this.status = status;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the interestgroup.
+	 * 
+	 * @return the interestgroup return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public Boolean getInterestgroup() {
+		/* Begin: Custom Code */
+        return this.interestgroup;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the interestgroup.
+	 * 
+	 * @param interestgroup
+	 *            the interestgroup parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setInterestgroup(Boolean interestgroup) {
+		this.interestgroup = interestgroup;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the feegroup.
+	 * 
+	 * @return the feegroup return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    public Boolean getFeegroup() {
+		/* Begin: Custom Code */
+        return this.feegroup;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the feegroup.
+	 * 
+	 * @param feegroup
+	 *            the feegroup parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setFeegroup(Boolean feegroup) {
+		this.feegroup = feegroup;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the linkedaccount.
+	 * 
+	 * @return the linkedaccount return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.pffactory.common.enums.LinkedAccountEnum"))
+    public LinkedAccountEnum getLinkedaccount() {
+		/* Begin: Custom Code */
+        return this.linkedaccount;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the linkedaccount.
+	 * 
+	 * @param linkedaccount
+	 *            the linkedaccount parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setLinkedaccount(LinkedAccountEnum linkedaccount) {
+		this.linkedaccount = linkedaccount;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the clausetype.
+	 * 
+	 * @return the clausetype return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 1)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.pffactory.common.enums.ClauseTypeEnum"))
+    public ClauseTypeEnum getClausetype() {
+		/* Begin: Custom Code */
+        return this.clausetype;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the clausetype.
+	 * 
+	 * @param clausetype
+	 *            the clausetype parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setClausetype(ClauseTypeEnum clausetype) {
+		this.clausetype = clausetype;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the contractDetails.
+	 * 
+	 * @return the contractDetails return value.
+	 * 
+	 * @generated
+	 */
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contractDetails_id", referencedColumnName = "id")
+    public ContractDetails getContractDetails() {
+		/* Begin: Custom Code */
+        return this.contractDetails;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the contractDetails.
+	 * 
+	 * @param contractDetails
+	 *            the contractDetails parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setContractDetails(ContractDetails contractDetails) {
+		this.contractDetails = contractDetails;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Method to generate hash code value of each attribute.
+	 * 
+	 * @return a hash code value for this object.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public int hashCode() {
+		int result = super.hashCode();
+		result = ContractIndicator.PRIME_NUMBER_HASHCODE * result
+				+ ((this.id == null) ? 0 : this.id.hashCode());
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return result;
+	}
+
+    /**
+	 * Indicates whether some other object is "equal to" this one.
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare.
+	 * @return true if this object is the same as the obj argument; false
+	 *         otherwise.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		ContractIndicator other = (ContractIndicator) obj;
+		if (this.id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else if (!this.id.equals(other.id)) {
+			return false;
+		}
+		if (this.transactionNumber == null) {
+			if (other.transactionNumber != null) {
+				return false;
+			}
+		} else if (!this.transactionNumber.equals(other.transactionNumber)) {
+			return false;
+		}
+		if (this.directDebitNumber == null) {
+			if (other.directDebitNumber != null) {
+				return false;
+			}
+		} else if (!this.directDebitNumber.equals(other.directDebitNumber)) {
+			return false;
+		}
+		if (this.userIndicator1 == null) {
+			if (other.userIndicator1 != null) {
+				return false;
+			}
+		} else if (!this.userIndicator1.equals(other.userIndicator1)) {
+			return false;
+		}
+		if (this.userIndicator2 == null) {
+			if (other.userIndicator2 != null) {
+				return false;
+			}
+		} else if (!this.userIndicator2.equals(other.userIndicator2)) {
+			return false;
+		}
+		if (this.userIndicator3 == null) {
+			if (other.userIndicator3 != null) {
+				return false;
+			}
+		} else if (!this.userIndicator3.equals(other.userIndicator3)) {
+			return false;
+		}
+		if (this.userIndicator4 == null) {
+			if (other.userIndicator4 != null) {
+				return false;
+			}
+		} else if (!this.userIndicator4.equals(other.userIndicator4)) {
+			return false;
+		}
+		if (this.userIndicator5 == null) {
+			if (other.userIndicator5 != null) {
+				return false;
+			}
+		} else if (!this.userIndicator5.equals(other.userIndicator5)) {
+			return false;
+		}
+		if (this.loanstatus != other.loanstatus) {
+			return false;
+		}
+		if (this.tax == null) {
+			if (other.tax != null) {
+				return false;
+			}
+		} else if (!this.tax.equals(other.tax)) {
+			return false;
+		}
+		if (this.indicatorspecialproduct == null) {
+			if (other.indicatorspecialproduct != null) {
+				return false;
+			}
+		} else if (!this.indicatorspecialproduct
+				.equals(other.indicatorspecialproduct)) {
+			return false;
+		}
+		if (this.pensioneraccount == null) {
+			if (other.pensioneraccount != null) {
+				return false;
+			}
+		} else if (!this.pensioneraccount.equals(other.pensioneraccount)) {
+			return false;
+		}
+		if (this.employee == null) {
+			if (other.employee != null) {
+				return false;
+			}
+		} else if (!this.employee.equals(other.employee)) {
+			return false;
+		}
+		if (this.blocked == null) {
+			if (other.blocked != null) {
+				return false;
+			}
+		} else if (!this.blocked.equals(other.blocked)) {
+			return false;
+		}
+		if (this.contractstatus != other.contractstatus) {
+			return false;
+		}
+		if (this.authorizedexceeded == null) {
+			if (other.authorizedexceeded != null) {
+				return false;
+			}
+		} else if (!this.authorizedexceeded.equals(other.authorizedexceeded)) {
+			return false;
+		}
+		if (this.status == null) {
+			if (other.status != null) {
+				return false;
+			}
+		} else if (!this.status.equals(other.status)) {
+			return false;
+		}
+		if (this.interestgroup == null) {
+			if (other.interestgroup != null) {
+				return false;
+			}
+		} else if (!this.interestgroup.equals(other.interestgroup)) {
+			return false;
+		}
+		if (this.feegroup == null) {
+			if (other.feegroup != null) {
+				return false;
+			}
+		} else if (!this.feegroup.equals(other.feegroup)) {
+			return false;
+		}
+		if (this.linkedaccount != other.linkedaccount) {
+			return false;
+		}
+		if (this.clausetype != other.clausetype) {
+			return false;
+		}
+		if (this.contractDetails == null) {
+			if (other.contractDetails != null) {
+				return false;
+			}
+		} else if (!this.contractDetails.equals(other.contractDetails)) {
+			return false;
+		}
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return true;
+	}
+}

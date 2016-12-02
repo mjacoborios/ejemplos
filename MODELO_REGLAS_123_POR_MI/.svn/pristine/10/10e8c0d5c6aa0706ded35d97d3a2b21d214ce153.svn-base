@@ -1,0 +1,706 @@
+/**********************************************************************************************************************
+ * Copyright Â© 2010 - 2013, Accenture Software, All Rights Reserved.
+ * 
+ * Project Name: PF_FACTORY_BH_SERVICES
+ * 
+ * Description: pff Business Hub Services project contains entity data and implements both the business logic and the
+ * access layer with external systems (databases, external legacies through ESB, etc.) of pff application
+ * 
+ * Application: Product and Fee Factory
+ * 
+ * Company: Accenture
+ * 
+ * The trademarks used in these materials are the properties of their respective owners. This work is protected by
+ * copyright law and contains valuable trade secrets and confidential information.
+ ********************************************************************************************************************** 
+ */
+package com.accenture.ang.pffactory.referencial.entity.pricingdwh;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
+
+import com.accenture.ang.common.referencial.audit.AuditEntity;
+//import com.accenture.ang.common.validation.CodeTable;
+
+/**
+ * Contract indicators.
+ * 
+ * @generated
+ */
+@Table(name = "pff_customerindicator", uniqueConstraints = { @UniqueConstraint(name = "uni_cust", columnNames = { "partyId" }) })
+@org.hibernate.annotations.Table(appliesTo = "pff_customerindicator", indexes = { @org.hibernate.annotations.Index(name = "partyId", columnNames = { "partyId" }) })
+@Entity(name = "pff_customerindicator")
+public class CustomerIndicator extends AuditEntity implements Serializable {
+    /**
+     * Default serial version UID.
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * Member variable for Prime Number Hashcode.
+     */
+    private static final int PRIME_NUMBER_HASHCODE = 31;
+
+    /**
+	 * The id attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long id;
+
+    /**
+	 * The contactMethod attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//    @CodeTable(tableName = "codetable.customerinformation.codetable.preferences_contact_method")
+    private String contactMethod;
+
+    /**
+	 * The employProfession attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 20)
+    private String employProfession;
+
+    /**
+	 * The employOccupation attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//    @CodeTable(tableName = "codetable.customerinformation.codetable.job_occupation")
+    private String employOccupation;
+
+    /**
+	 * The employRole attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//    @CodeTable(tableName = "codetable.customerinformation.codetable.job_role")
+    private String employRole;
+
+    /**
+	 * The maritalStatus attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 20)
+    private String maritalStatus;
+
+    /**
+	 * The marketClassification attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 50)
+    private String marketClassification;
+
+    /**
+	 * The confidentialStatus attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//    @CodeTable(tableName = "codetable.common.codetable.confidential_status")
+    private String confidentialStatus;
+
+    /**
+	 * The userIndicator1 attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 255)
+    private String userIndicator1;
+
+    /**
+	 * The userIndicator2 attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 255)
+    private String userIndicator2;
+
+    /**
+	 * The userIndicator3 attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 255)
+    private String userIndicator3;
+
+    /**
+	 * The userIndicator4 attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 255)
+    private String userIndicator4;
+
+    /**
+	 * The userIndicator5 attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 255)
+    private String userIndicator5;
+
+    /**
+	 * The customerDetails attribute.
+	 * 
+	 * @generated
+	 */
+    private CustomerDetails customerDetails;
+
+    /**
+	 * Retrieves the id.
+	 * 
+	 * @return the id return value.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 0, precision = 20)
+    @Id
+    @GeneratedValue
+    public Long getId() {
+		/* Begin: Custom Code */
+        return this.id;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the id.
+	 * 
+	 * @param id
+	 *            the id parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setId(Long id) {
+		this.id = id;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the contactMethod.
+	 * 
+	 * @return the contactMethod return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    public String getContactMethod() {
+		/* Begin: Custom Code */
+        return this.contactMethod;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the contactMethod.
+	 * 
+	 * @param contactMethod
+	 *            the contactMethod parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setContactMethod(String contactMethod) {
+		this.contactMethod = contactMethod;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the employProfession.
+	 * 
+	 * @return the employProfession return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 20)
+    public String getEmployProfession() {
+		/* Begin: Custom Code */
+        return this.employProfession;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the employProfession.
+	 * 
+	 * @param employProfession
+	 *            the employProfession parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setEmployProfession(String employProfession) {
+		this.employProfession = employProfession;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the employOccupation.
+	 * 
+	 * @return the employOccupation return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    public String getEmployOccupation() {
+		/* Begin: Custom Code */
+        return this.employOccupation;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the employOccupation.
+	 * 
+	 * @param employOccupation
+	 *            the employOccupation parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setEmployOccupation(String employOccupation) {
+		this.employOccupation = employOccupation;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the employRole.
+	 * 
+	 * @return the employRole return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    public String getEmployRole() {
+		/* Begin: Custom Code */
+        return this.employRole;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the employRole.
+	 * 
+	 * @param employRole
+	 *            the employRole parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setEmployRole(String employRole) {
+		this.employRole = employRole;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the maritalStatus.
+	 * 
+	 * @return the maritalStatus return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 20)
+    public String getMaritalStatus() {
+		/* Begin: Custom Code */
+        return this.maritalStatus;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the maritalStatus.
+	 * 
+	 * @param maritalStatus
+	 *            the maritalStatus parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setMaritalStatus(String maritalStatus) {
+		this.maritalStatus = maritalStatus;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the marketClassification.
+	 * 
+	 * @return the marketClassification return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 50)
+    public String getMarketClassification() {
+		/* Begin: Custom Code */
+        return this.marketClassification;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the marketClassification.
+	 * 
+	 * @param marketClassification
+	 *            the marketClassification parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setMarketClassification(String marketClassification) {
+		this.marketClassification = marketClassification;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the confidentialStatus.
+	 * 
+	 * @return the confidentialStatus return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    public String getConfidentialStatus() {
+		/* Begin: Custom Code */
+        return this.confidentialStatus;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the confidentialStatus.
+	 * 
+	 * @param confidentialStatus
+	 *            the confidentialStatus parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setConfidentialStatus(String confidentialStatus) {
+		this.confidentialStatus = confidentialStatus;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userIndicator1.
+	 * 
+	 * @return the userIndicator1 return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 255)
+    public String getUserIndicator1() {
+		/* Begin: Custom Code */
+        return this.userIndicator1;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userIndicator1.
+	 * 
+	 * @param userIndicator1
+	 *            the userIndicator1 parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setUserIndicator1(String userIndicator1) {
+		this.userIndicator1 = userIndicator1;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userIndicator2.
+	 * 
+	 * @return the userIndicator2 return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 255)
+    public String getUserIndicator2() {
+		/* Begin: Custom Code */
+        return this.userIndicator2;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userIndicator2.
+	 * 
+	 * @param userIndicator2
+	 *            the userIndicator2 parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setUserIndicator2(String userIndicator2) {
+		this.userIndicator2 = userIndicator2;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userIndicator3.
+	 * 
+	 * @return the userIndicator3 return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 255)
+    public String getUserIndicator3() {
+		/* Begin: Custom Code */
+        return this.userIndicator3;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userIndicator3.
+	 * 
+	 * @param userIndicator3
+	 *            the userIndicator3 parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setUserIndicator3(String userIndicator3) {
+		this.userIndicator3 = userIndicator3;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userIndicator4.
+	 * 
+	 * @return the userIndicator4 return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 255)
+    public String getUserIndicator4() {
+		/* Begin: Custom Code */
+        return this.userIndicator4;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userIndicator4.
+	 * 
+	 * @param userIndicator4
+	 *            the userIndicator4 parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setUserIndicator4(String userIndicator4) {
+		this.userIndicator4 = userIndicator4;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userIndicator5.
+	 * 
+	 * @return the userIndicator5 return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 255)
+    public String getUserIndicator5() {
+		/* Begin: Custom Code */
+        return this.userIndicator5;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userIndicator5.
+	 * 
+	 * @param userIndicator5
+	 *            the userIndicator5 parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setUserIndicator5(String userIndicator5) {
+		this.userIndicator5 = userIndicator5;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the customerDetails.
+	 * 
+	 * @return the customerDetails return value.
+	 * 
+	 * @generated
+	 */
+    @OneToOne
+    @JoinColumn(name = "partyId", referencedColumnName = "partyId", nullable = false)
+    public CustomerDetails getCustomerDetails() {
+		/* Begin: Custom Code */
+        return this.customerDetails;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the customerDetails.
+	 * 
+	 * @param customerDetails
+	 *            the customerDetails parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setCustomerDetails(CustomerDetails customerDetails) {
+		this.customerDetails = customerDetails;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Method to generate hash code value of each attribute.
+	 * 
+	 * @return a hash code value for this object.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public int hashCode() {
+		int result = super.hashCode();
+		result = CustomerIndicator.PRIME_NUMBER_HASHCODE * result
+				+ ((this.id == null) ? 0 : this.id.hashCode());
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return result;
+	}
+
+    /**
+	 * Indicates whether some other object is "equal to" this one.
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare.
+	 * @return true if this object is the same as the obj argument; false
+	 *         otherwise.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		CustomerIndicator other = (CustomerIndicator) obj;
+		if (this.id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else if (!this.id.equals(other.id)) {
+			return false;
+		}
+		if (this.contactMethod == null) {
+			if (other.contactMethod != null) {
+				return false;
+			}
+		} else if (!this.contactMethod.equals(other.contactMethod)) {
+			return false;
+		}
+		if (this.employProfession == null) {
+			if (other.employProfession != null) {
+				return false;
+			}
+		} else if (!this.employProfession.equals(other.employProfession)) {
+			return false;
+		}
+		if (this.employOccupation == null) {
+			if (other.employOccupation != null) {
+				return false;
+			}
+		} else if (!this.employOccupation.equals(other.employOccupation)) {
+			return false;
+		}
+		if (this.employRole == null) {
+			if (other.employRole != null) {
+				return false;
+			}
+		} else if (!this.employRole.equals(other.employRole)) {
+			return false;
+		}
+		if (this.maritalStatus == null) {
+			if (other.maritalStatus != null) {
+				return false;
+			}
+		} else if (!this.maritalStatus.equals(other.maritalStatus)) {
+			return false;
+		}
+		if (this.marketClassification == null) {
+			if (other.marketClassification != null) {
+				return false;
+			}
+		} else if (!this.marketClassification
+				.equals(other.marketClassification)) {
+			return false;
+		}
+		if (this.confidentialStatus == null) {
+			if (other.confidentialStatus != null) {
+				return false;
+			}
+		} else if (!this.confidentialStatus.equals(other.confidentialStatus)) {
+			return false;
+		}
+		if (this.userIndicator1 == null) {
+			if (other.userIndicator1 != null) {
+				return false;
+			}
+		} else if (!this.userIndicator1.equals(other.userIndicator1)) {
+			return false;
+		}
+		if (this.userIndicator2 == null) {
+			if (other.userIndicator2 != null) {
+				return false;
+			}
+		} else if (!this.userIndicator2.equals(other.userIndicator2)) {
+			return false;
+		}
+		if (this.userIndicator3 == null) {
+			if (other.userIndicator3 != null) {
+				return false;
+			}
+		} else if (!this.userIndicator3.equals(other.userIndicator3)) {
+			return false;
+		}
+		if (this.userIndicator4 == null) {
+			if (other.userIndicator4 != null) {
+				return false;
+			}
+		} else if (!this.userIndicator4.equals(other.userIndicator4)) {
+			return false;
+		}
+		if (this.userIndicator5 == null) {
+			if (other.userIndicator5 != null) {
+				return false;
+			}
+		} else if (!this.userIndicator5.equals(other.userIndicator5)) {
+			return false;
+		}
+		if (this.customerDetails == null) {
+			if (other.customerDetails != null) {
+				return false;
+			}
+		} else if (!this.customerDetails.equals(other.customerDetails)) {
+			return false;
+		}
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return true;
+	}
+}

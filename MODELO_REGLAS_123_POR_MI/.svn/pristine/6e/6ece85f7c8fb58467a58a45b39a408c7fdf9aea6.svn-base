@@ -1,0 +1,1229 @@
+/**********************************************************************************************************************
+ * Copyright Â© 2010 - 2016, Accenture Software, All Rights Reserved.
+ * 
+ * Project Name:    PF_FACTORY_INTEGRATION
+ *
+ * Description:     pff Integration project contains all data exchanged between 
+ *                  presentation layer and business hub (value objects, identifiers, enums, etc.) 
+ *                  of pff application. 
+ *
+ * Application:     Product and Fee Factory
+ * 
+ * Company:         Accenture 
+ * 
+ * The trademarks used in these materials are the properties of their respective owners.
+ * This work is protected by copyright law and contains valuable trade secrets and confidential information.
+ **********************************************************************************************************************
+ */
+package com.accenture.ang.pffactory.referencial.entity.odm;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Set;
+
+import javax.validation.constraints.Digits;
+
+/**
+ * A Class representation of the Monitoreo123xMi model object.
+ * 
+ * @generated
+ */
+public class Monitoreo123xMi implements Serializable {
+
+	/**
+	 * Default serial version UID.
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Member variable for Prime Number Hashcode.
+	 */
+	private static final int PRIME_NUMBER_HASHCODE = 31;
+
+	/**
+	 * The contractDetails attribute.
+	 * 
+	 * @generated
+	 */
+	private ContractDetailsODMVO contractDetails;
+
+	/**
+	 * The monitoreoMensualMes1 attribute.
+	 * 
+	 * @generated
+	 */
+	private MonitoreoMensualODMVO monitoreoMensualMes1;
+
+	/**
+	 * The monitoreoMensualMes2 attribute.
+	 * 
+	 * @generated
+	 */
+	private MonitoreoMensualODMVO monitoreoMensualMes2;
+
+	/**
+	 * The monitoreoMensualMes3 attribute.
+	 * 
+	 * @generated
+	 */
+	private MonitoreoMensualODMVO monitoreoMensualMes3;
+
+	/**
+	 * In Product&Fee Factory, a product is composed of items (product
+	 * characteristics). For an item of type 'Simple' (String, Decimal, Integer,
+	 * Percentage), this property is the value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	private String claveEmpaquetamiento;
+
+	/**
+	 * In Product&Fee Factory, a product is composed of items (product
+	 * characteristics). For an item of type 'Simple' (String, Decimal, Integer,
+	 * Percentage), this property is the value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	private String claveDefinitiva;
+
+	/**
+	 * The contractDetailsList attribute.
+	 * 
+	 * @generated
+	 */
+	private Set<ContractDetailsODMVO> contractDetailsList;
+
+	/**
+	 * The numTrimestreSigAnualidad attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 10, fraction = 0)
+	private Integer numTrimestreSigAnualidad;
+
+	/**
+	 * In Product&Fee Factory, a product is composed of items (product
+	 * characteristics). For an item of type 'Simple' (String, Decimal, Integer,
+	 * Percentage), this property is the value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	private String clavePenalizacion;
+
+	/**
+	 * In Product&Fee Factory, a product is composed of items (product
+	 * characteristics). For an item of type 'Simple' (String, Decimal, Integer,
+	 * Percentage), this property is the value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	private String claveTransacciones;
+
+	/**
+	 * In Product&Fee Factory, a product is composed of items (product
+	 * characteristics). For an item of type 'Simple' (String, Decimal, Integer,
+	 * Percentage), this property is the value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	private String clavePagosBxI;
+
+	/**
+	 * In Product&Fee Factory, a product is composed of items (product
+	 * characteristics). For an item of type 'Simple' (String, Decimal, Integer,
+	 * Percentage), this property is the value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	private String clavePagosVencidos;
+
+	/**
+	 * The mesMonitoreoAnterior attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 10, fraction = 0)
+	private Integer mesMonitoreoAnterior;
+
+	/**
+	 * The mesFechaCancelacion attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 10, fraction = 0)
+	private Integer mesFechaCancelacion;
+
+	/**
+	 * The fechaCancelacion attribute.
+	 * 
+	 * @generated
+	 */
+	private Date fechaCancelacion;
+
+	/**
+	 * The fechaFinCorteAnteriorMonitoreo attribute.
+	 * 
+	 * @generated
+	 */
+	private Date fechaFinCorteAnteriorMonitoreo;
+
+	/**
+	 * The esBaja attribute.
+	 * 
+	 * @generated
+	 */
+	private Boolean esBaja;
+
+	/**
+	 * The tieneCuentaCaptacionBxI attribute.
+	 * 
+	 * @generated
+	 */
+	private Boolean tieneCuentaCaptacionBxI;
+
+	/**
+	 * The cumpleCondiciones attribute.
+	 * 
+	 * @generated
+	 */
+	private Boolean cumpleCondiciones;
+
+	/**
+	 * The mesMonitoreoActual attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 10, fraction = 0)
+	private Integer mesMonitoreoActual;
+
+	/**
+	 * The mes1Antes attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 10, fraction = 0)
+	private Integer mes1Antes;
+
+	/**
+	 * The mes2Antes attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 10, fraction = 0)
+	private Integer mes2Antes;
+
+	/**
+	 * The estaEnUltimos3Meses attribute.
+	 * 
+	 * @generated
+	 */
+	private Boolean estaEnUltimos3Meses;
+
+	/**
+	 * The esCuentaActiva attribute.
+	 * 
+	 * @generated
+	 */
+	private Boolean esCuentaActiva;
+
+	/**
+	 * Retrieves the contractDetails.
+	 * 
+	 * @return the contractDetails return value.
+	 * 
+	 * @generated
+	 */
+	public ContractDetailsODMVO getContractDetails() {
+		/* Begin: Custom Code */
+		return this.contractDetails;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the contractDetails.
+	 * 
+	 * @param contractDetails
+	 *            the contractDetails parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setContractDetails(ContractDetailsODMVO contractDetails) {
+		this.contractDetails = contractDetails;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the monitoreoMensualMes1.
+	 * 
+	 * @return the monitoreoMensualMes1 return value.
+	 * 
+	 * @generated
+	 */
+	public MonitoreoMensualODMVO getMonitoreoMensualMes1() {
+		/* Begin: Custom Code */
+		return this.monitoreoMensualMes1;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the monitoreoMensualMes1.
+	 * 
+	 * @param monitoreoMensualMes1
+	 *            the monitoreoMensualMes1 parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setMonitoreoMensualMes1(
+			MonitoreoMensualODMVO monitoreoMensualMes1) {
+		this.monitoreoMensualMes1 = monitoreoMensualMes1;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the monitoreoMensualMes2.
+	 * 
+	 * @return the monitoreoMensualMes2 return value.
+	 * 
+	 * @generated
+	 */
+	public MonitoreoMensualODMVO getMonitoreoMensualMes2() {
+		/* Begin: Custom Code */
+		return this.monitoreoMensualMes2;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the monitoreoMensualMes2.
+	 * 
+	 * @param monitoreoMensualMes2
+	 *            the monitoreoMensualMes2 parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setMonitoreoMensualMes2(
+			MonitoreoMensualODMVO monitoreoMensualMes2) {
+		this.monitoreoMensualMes2 = monitoreoMensualMes2;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the monitoreoMensualMes3.
+	 * 
+	 * @return the monitoreoMensualMes3 return value.
+	 * 
+	 * @generated
+	 */
+	public MonitoreoMensualODMVO getMonitoreoMensualMes3() {
+		/* Begin: Custom Code */
+		return this.monitoreoMensualMes3;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the monitoreoMensualMes3.
+	 * 
+	 * @param monitoreoMensualMes3
+	 *            the monitoreoMensualMes3 parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setMonitoreoMensualMes3(
+			MonitoreoMensualODMVO monitoreoMensualMes3) {
+		this.monitoreoMensualMes3 = monitoreoMensualMes3;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the claveEmpaquetamiento.
+	 * 
+	 * @return In Product&Fee Factory, a product is composed of items (product
+	 *         characteristics). For an item of type 'Simple' (String, Decimal,
+	 *         Integer, Percentage), this property is the value assigned to the
+	 *         item..
+	 * 
+	 * @generated
+	 */
+	public String getClaveEmpaquetamiento() {
+		/* Begin: Custom Code */
+		return this.claveEmpaquetamiento;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the claveEmpaquetamiento.
+	 * 
+	 * @param claveEmpaquetamiento
+	 *            In Product&Fee Factory, a product is composed of items
+	 *            (product characteristics). For an item of type 'Simple'
+	 *            (String, Decimal, Integer, Percentage), this property is the
+	 *            value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	public void setClaveEmpaquetamiento(String claveEmpaquetamiento) {
+		this.claveEmpaquetamiento = claveEmpaquetamiento;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the claveDefinitiva.
+	 * 
+	 * @return In Product&Fee Factory, a product is composed of items (product
+	 *         characteristics). For an item of type 'Simple' (String, Decimal,
+	 *         Integer, Percentage), this property is the value assigned to the
+	 *         item..
+	 * 
+	 * @generated
+	 */
+	public String getClaveDefinitiva() {
+		/* Begin: Custom Code */
+		return this.claveDefinitiva;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the claveDefinitiva.
+	 * 
+	 * @param claveDefinitiva
+	 *            In Product&Fee Factory, a product is composed of items
+	 *            (product characteristics). For an item of type 'Simple'
+	 *            (String, Decimal, Integer, Percentage), this property is the
+	 *            value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	public void setClaveDefinitiva(String claveDefinitiva) {
+		this.claveDefinitiva = claveDefinitiva;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the contractDetailsList.
+	 * 
+	 * @return the contractDetailsList return value.
+	 * 
+	 * @generated
+	 */
+	public Set<ContractDetailsODMVO> getContractDetailsList() {
+		/* Begin: Custom Code */
+		return this.contractDetailsList;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the contractDetailsList.
+	 * 
+	 * @param contractDetailsList
+	 *            the contractDetailsList parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setContractDetailsList(
+			Set<ContractDetailsODMVO> contractDetailsList) {
+		this.contractDetailsList = contractDetailsList;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the numTrimestreSigAnualidad.
+	 * 
+	 * @return the numTrimestreSigAnualidad return value.
+	 * 
+	 * @generated
+	 */
+	public Integer getNumTrimestreSigAnualidad() {
+		/* Begin: Custom Code */
+		return this.numTrimestreSigAnualidad;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the numTrimestreSigAnualidad.
+	 * 
+	 * @param numTrimestreSigAnualidad
+	 *            the numTrimestreSigAnualidad parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setNumTrimestreSigAnualidad(Integer numTrimestreSigAnualidad) {
+		this.numTrimestreSigAnualidad = numTrimestreSigAnualidad;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the clavePenalizacion.
+	 * 
+	 * @return In Product&Fee Factory, a product is composed of items (product
+	 *         characteristics). For an item of type 'Simple' (String, Decimal,
+	 *         Integer, Percentage), this property is the value assigned to the
+	 *         item..
+	 * 
+	 * @generated
+	 */
+	public String getClavePenalizacion() {
+		/* Begin: Custom Code */
+		return this.clavePenalizacion;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the clavePenalizacion.
+	 * 
+	 * @param clavePenalizacion
+	 *            In Product&Fee Factory, a product is composed of items
+	 *            (product characteristics). For an item of type 'Simple'
+	 *            (String, Decimal, Integer, Percentage), this property is the
+	 *            value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	public void setClavePenalizacion(String clavePenalizacion) {
+		this.clavePenalizacion = clavePenalizacion;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the claveTransacciones.
+	 * 
+	 * @return In Product&Fee Factory, a product is composed of items (product
+	 *         characteristics). For an item of type 'Simple' (String, Decimal,
+	 *         Integer, Percentage), this property is the value assigned to the
+	 *         item..
+	 * 
+	 * @generated
+	 */
+	public String getClaveTransacciones() {
+		/* Begin: Custom Code */
+		return this.claveTransacciones;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the claveTransacciones.
+	 * 
+	 * @param claveTransacciones
+	 *            In Product&Fee Factory, a product is composed of items
+	 *            (product characteristics). For an item of type 'Simple'
+	 *            (String, Decimal, Integer, Percentage), this property is the
+	 *            value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	public void setClaveTransacciones(String claveTransacciones) {
+		this.claveTransacciones = claveTransacciones;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the clavePagosBxI.
+	 * 
+	 * @return In Product&Fee Factory, a product is composed of items (product
+	 *         characteristics). For an item of type 'Simple' (String, Decimal,
+	 *         Integer, Percentage), this property is the value assigned to the
+	 *         item..
+	 * 
+	 * @generated
+	 */
+	public String getClavePagosBxI() {
+		/* Begin: Custom Code */
+		return this.clavePagosBxI;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the clavePagosBxI.
+	 * 
+	 * @param clavePagosBxI
+	 *            In Product&Fee Factory, a product is composed of items
+	 *            (product characteristics). For an item of type 'Simple'
+	 *            (String, Decimal, Integer, Percentage), this property is the
+	 *            value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	public void setClavePagosBxI(String clavePagosBxI) {
+		this.clavePagosBxI = clavePagosBxI;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the clavePagosVencidos.
+	 * 
+	 * @return In Product&Fee Factory, a product is composed of items (product
+	 *         characteristics). For an item of type 'Simple' (String, Decimal,
+	 *         Integer, Percentage), this property is the value assigned to the
+	 *         item..
+	 * 
+	 * @generated
+	 */
+	public String getClavePagosVencidos() {
+		/* Begin: Custom Code */
+		return this.clavePagosVencidos;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the clavePagosVencidos.
+	 * 
+	 * @param clavePagosVencidos
+	 *            In Product&Fee Factory, a product is composed of items
+	 *            (product characteristics). For an item of type 'Simple'
+	 *            (String, Decimal, Integer, Percentage), this property is the
+	 *            value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	public void setClavePagosVencidos(String clavePagosVencidos) {
+		this.clavePagosVencidos = clavePagosVencidos;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the mesMonitoreoAnterior.
+	 * 
+	 * @return the mesMonitoreoAnterior return value.
+	 * 
+	 * @generated
+	 */
+	public Integer getMesMonitoreoAnterior() {
+		/* Begin: Custom Code */
+		return this.mesMonitoreoAnterior;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the mesMonitoreoAnterior.
+	 * 
+	 * @param mesMonitoreoAnterior
+	 *            the mesMonitoreoAnterior parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setMesMonitoreoAnterior(Integer mesMonitoreoAnterior) {
+		this.mesMonitoreoAnterior = mesMonitoreoAnterior;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the mesFechaCancelacion.
+	 * 
+	 * @return the mesFechaCancelacion return value.
+	 * 
+	 * @generated
+	 */
+	public Integer getMesFechaCancelacion() {
+		/* Begin: Custom Code */
+		return this.mesFechaCancelacion;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the mesFechaCancelacion.
+	 * 
+	 * @param mesFechaCancelacion
+	 *            the mesFechaCancelacion parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setMesFechaCancelacion(Integer mesFechaCancelacion) {
+		this.mesFechaCancelacion = mesFechaCancelacion;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the fechaCancelacion.
+	 * 
+	 * @return the fechaCancelacion return value.
+	 * 
+	 * @generated
+	 */
+	public Date getFechaCancelacion() {
+		/* Begin: Custom Code */
+		return (this.fechaCancelacion == null) ? null
+				: (Date) this.fechaCancelacion.clone();
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the fechaCancelacion.
+	 * 
+	 * @param fechaCancelacion
+	 *            the fechaCancelacion parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setFechaCancelacion(Date fechaCancelacion) {
+		this.fechaCancelacion = (fechaCancelacion == null) ? null
+				: (Date) fechaCancelacion.clone();
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the fechaFinCorteAnteriorMonitoreo.
+	 * 
+	 * @return the fechaFinCorteAnteriorMonitoreo return value.
+	 * 
+	 * @generated
+	 */
+	public Date getFechaFinCorteAnteriorMonitoreo() {
+		/* Begin: Custom Code */
+		return (this.fechaFinCorteAnteriorMonitoreo == null) ? null
+				: (Date) this.fechaFinCorteAnteriorMonitoreo.clone();
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the fechaFinCorteAnteriorMonitoreo.
+	 * 
+	 * @param fechaFinCorteAnteriorMonitoreo
+	 *            the fechaFinCorteAnteriorMonitoreo parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setFechaFinCorteAnteriorMonitoreo(
+			Date fechaFinCorteAnteriorMonitoreo) {
+		this.fechaFinCorteAnteriorMonitoreo = (fechaFinCorteAnteriorMonitoreo == null) ? null
+				: (Date) fechaFinCorteAnteriorMonitoreo.clone();
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the esBaja.
+	 * 
+	 * @return the esBaja return value.
+	 * 
+	 * @generated
+	 */
+	public Boolean getEsBaja() {
+		/* Begin: Custom Code */
+		return this.esBaja;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the esBaja.
+	 * 
+	 * @param esBaja
+	 *            the esBaja parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setEsBaja(Boolean esBaja) {
+		this.esBaja = esBaja;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the tieneCuentaCaptacionBxI.
+	 * 
+	 * @return the tieneCuentaCaptacionBxI return value.
+	 * 
+	 * @generated
+	 */
+	public Boolean getTieneCuentaCaptacionBxI() {
+		/* Begin: Custom Code */
+		return this.tieneCuentaCaptacionBxI;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the tieneCuentaCaptacionBxI.
+	 * 
+	 * @param tieneCuentaCaptacionBxI
+	 *            the tieneCuentaCaptacionBxI parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setTieneCuentaCaptacionBxI(Boolean tieneCuentaCaptacionBxI) {
+		this.tieneCuentaCaptacionBxI = tieneCuentaCaptacionBxI;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the cumpleCondiciones.
+	 * 
+	 * @return the cumpleCondiciones return value.
+	 * 
+	 * @generated
+	 */
+	public Boolean getCumpleCondiciones() {
+		/* Begin: Custom Code */
+		return this.cumpleCondiciones;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the cumpleCondiciones.
+	 * 
+	 * @param cumpleCondiciones
+	 *            the cumpleCondiciones parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setCumpleCondiciones(Boolean cumpleCondiciones) {
+		this.cumpleCondiciones = cumpleCondiciones;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the mesMonitoreoActual.
+	 * 
+	 * @return the mesMonitoreoActual return value.
+	 * 
+	 * @generated
+	 */
+	public Integer getMesMonitoreoActual() {
+		/* Begin: Custom Code */
+		return this.mesMonitoreoActual;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the mesMonitoreoActual.
+	 * 
+	 * @param mesMonitoreoActual
+	 *            the mesMonitoreoActual parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setMesMonitoreoActual(Integer mesMonitoreoActual) {
+		this.mesMonitoreoActual = mesMonitoreoActual;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the mes1Antes.
+	 * 
+	 * @return the mes1Antes return value.
+	 * 
+	 * @generated
+	 */
+	public Integer getMes1Antes() {
+		/* Begin: Custom Code */
+		return this.mes1Antes;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the mes1Antes.
+	 * 
+	 * @param mes1Antes
+	 *            the mes1Antes parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setMes1Antes(Integer mes1Antes) {
+		this.mes1Antes = mes1Antes;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the mes2Antes.
+	 * 
+	 * @return the mes2Antes return value.
+	 * 
+	 * @generated
+	 */
+	public Integer getMes2Antes() {
+		/* Begin: Custom Code */
+		return this.mes2Antes;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the mes2Antes.
+	 * 
+	 * @param mes2Antes
+	 *            the mes2Antes parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setMes2Antes(Integer mes2Antes) {
+		this.mes2Antes = mes2Antes;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the estaEnUltimos3Meses.
+	 * 
+	 * @return the estaEnUltimos3Meses return value.
+	 * 
+	 * @generated
+	 */
+	public Boolean getEstaEnUltimos3Meses() {
+		/* Begin: Custom Code */
+		return this.estaEnUltimos3Meses;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the estaEnUltimos3Meses.
+	 * 
+	 * @param estaEnUltimos3Meses
+	 *            the estaEnUltimos3Meses parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setEstaEnUltimos3Meses(Boolean estaEnUltimos3Meses) {
+		this.estaEnUltimos3Meses = estaEnUltimos3Meses;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the esCuentaActiva.
+	 * 
+	 * @return the esCuentaActiva return value.
+	 * 
+	 * @generated
+	 */
+	public Boolean getEsCuentaActiva() {
+		/* Begin: Custom Code */
+		return this.esCuentaActiva;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the esCuentaActiva.
+	 * 
+	 * @param esCuentaActiva
+	 *            the esCuentaActiva parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setEsCuentaActiva(Boolean esCuentaActiva) {
+		this.esCuentaActiva = esCuentaActiva;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Method to generate hash code value of each attribute.
+	 * 
+	 * @return a hash code value for this object.
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int hashCode() {
+		int result = 1;
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.contractDetails == null) ? 0 : this.contractDetails
+						.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.monitoreoMensualMes1 == null) ? 0
+						: this.monitoreoMensualMes1.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.monitoreoMensualMes2 == null) ? 0
+						: this.monitoreoMensualMes2.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.monitoreoMensualMes3 == null) ? 0
+						: this.monitoreoMensualMes3.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.claveEmpaquetamiento == null) ? 0
+						: this.claveEmpaquetamiento.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.claveDefinitiva == null) ? 0 : this.claveDefinitiva
+						.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.contractDetailsList == null) ? 0
+						: this.contractDetailsList.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.numTrimestreSigAnualidad == null) ? 0
+						: this.numTrimestreSigAnualidad.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.clavePenalizacion == null) ? 0
+						: this.clavePenalizacion.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.claveTransacciones == null) ? 0
+						: this.claveTransacciones.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.clavePagosBxI == null) ? 0 : this.clavePagosBxI
+						.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.clavePagosVencidos == null) ? 0
+						: this.clavePagosVencidos.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.mesMonitoreoAnterior == null) ? 0
+						: this.mesMonitoreoAnterior.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.mesFechaCancelacion == null) ? 0
+						: this.mesFechaCancelacion.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.fechaCancelacion == null) ? 0 : this.fechaCancelacion
+						.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.fechaFinCorteAnteriorMonitoreo == null) ? 0
+						: this.fechaFinCorteAnteriorMonitoreo.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.mesMonitoreoActual == null) ? 0
+						: this.mesMonitoreoActual.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE * result
+				+ ((this.mes1Antes == null) ? 0 : this.mes1Antes.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE * result
+				+ ((this.mes2Antes == null) ? 0 : this.mes2Antes.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE * result
+				+ ((this.esBaja == null) ? 0 : this.esBaja.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.tieneCuentaCaptacionBxI == null) ? 0
+						: this.tieneCuentaCaptacionBxI.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.cumpleCondiciones == null) ? 0
+						: this.cumpleCondiciones.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.estaEnUltimos3Meses == null) ? 0
+						: this.estaEnUltimos3Meses.hashCode());
+		result = Monitoreo123xMi.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.esCuentaActiva == null) ? 0 : this.esCuentaActiva
+						.hashCode());
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+		return result;
+	}
+
+	/**
+	 * Indicates whether some other object is "equal to" this one.
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare.
+	 * @return true if this object is the same as the obj argument; false
+	 *         otherwise.
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		Monitoreo123xMi other = (Monitoreo123xMi) obj;
+		if (this.contractDetails == null) {
+			if (other.contractDetails != null) {
+				return false;
+			}
+		} else if (!this.contractDetails.equals(other.contractDetails)) {
+			return false;
+		}
+		if (this.monitoreoMensualMes1 == null) {
+			if (other.monitoreoMensualMes1 != null) {
+				return false;
+			}
+		} else if (!this.monitoreoMensualMes1
+				.equals(other.monitoreoMensualMes1)) {
+			return false;
+		}
+		if (this.monitoreoMensualMes2 == null) {
+			if (other.monitoreoMensualMes2 != null) {
+				return false;
+			}
+		} else if (!this.monitoreoMensualMes2
+				.equals(other.monitoreoMensualMes2)) {
+			return false;
+		}
+		if (this.monitoreoMensualMes3 == null) {
+			if (other.monitoreoMensualMes3 != null) {
+				return false;
+			}
+		} else if (!this.monitoreoMensualMes3
+				.equals(other.monitoreoMensualMes3)) {
+			return false;
+		}
+		if (this.claveEmpaquetamiento == null) {
+			if (other.claveEmpaquetamiento != null) {
+				return false;
+			}
+		} else if (!this.claveEmpaquetamiento
+				.equals(other.claveEmpaquetamiento)) {
+			return false;
+		}
+		if (this.claveDefinitiva == null) {
+			if (other.claveDefinitiva != null) {
+				return false;
+			}
+		} else if (!this.claveDefinitiva.equals(other.claveDefinitiva)) {
+			return false;
+		}
+		if (this.contractDetailsList == null) {
+			if (other.contractDetailsList != null) {
+				return false;
+			}
+		} else if (!this.contractDetailsList.equals(other.contractDetailsList)) {
+			return false;
+		}
+		if (this.numTrimestreSigAnualidad == null) {
+			if (other.numTrimestreSigAnualidad != null) {
+				return false;
+			}
+		} else if (!this.numTrimestreSigAnualidad
+				.equals(other.numTrimestreSigAnualidad)) {
+			return false;
+		}
+		if (this.clavePenalizacion == null) {
+			if (other.clavePenalizacion != null) {
+				return false;
+			}
+		} else if (!this.clavePenalizacion.equals(other.clavePenalizacion)) {
+			return false;
+		}
+		if (this.claveTransacciones == null) {
+			if (other.claveTransacciones != null) {
+				return false;
+			}
+		} else if (!this.claveTransacciones.equals(other.claveTransacciones)) {
+			return false;
+		}
+		if (this.clavePagosBxI == null) {
+			if (other.clavePagosBxI != null) {
+				return false;
+			}
+		} else if (!this.clavePagosBxI.equals(other.clavePagosBxI)) {
+			return false;
+		}
+		if (this.clavePagosVencidos == null) {
+			if (other.clavePagosVencidos != null) {
+				return false;
+			}
+		} else if (!this.clavePagosVencidos.equals(other.clavePagosVencidos)) {
+			return false;
+		}
+		if (this.mesMonitoreoAnterior == null) {
+			if (other.mesMonitoreoAnterior != null) {
+				return false;
+			}
+		} else if (!this.mesMonitoreoAnterior
+				.equals(other.mesMonitoreoAnterior)) {
+			return false;
+		}
+		if (this.mesFechaCancelacion == null) {
+			if (other.mesFechaCancelacion != null) {
+				return false;
+			}
+		} else if (!this.mesFechaCancelacion.equals(other.mesFechaCancelacion)) {
+			return false;
+		}
+		if (this.fechaCancelacion == null) {
+			if (other.fechaCancelacion != null) {
+				return false;
+			}
+		} else if (!this.fechaCancelacion.equals(other.fechaCancelacion)) {
+			return false;
+		}
+		if (this.fechaFinCorteAnteriorMonitoreo == null) {
+			if (other.fechaFinCorteAnteriorMonitoreo != null) {
+				return false;
+			}
+		} else if (!this.fechaFinCorteAnteriorMonitoreo
+				.equals(other.fechaFinCorteAnteriorMonitoreo)) {
+			return false;
+		}
+		if (this.mesMonitoreoActual == null) {
+			if (other.mesMonitoreoActual != null) {
+				return false;
+			}
+		} else if (!this.mesMonitoreoActual.equals(other.mesMonitoreoActual)) {
+			return false;
+		}
+		if (this.mes1Antes == null) {
+			if (other.mes1Antes != null) {
+				return false;
+			}
+		} else if (!this.mes1Antes.equals(other.mes1Antes)) {
+			return false;
+		}
+		if (this.mes2Antes == null) {
+			if (other.mes2Antes != null) {
+				return false;
+			}
+		} else if (!this.mes2Antes.equals(other.mes2Antes)) {
+			return false;
+		}
+		if (this.esBaja == null) {
+			if (other.esBaja != null) {
+				return false;
+			}
+		} else if (!this.esBaja.equals(other.esBaja)) {
+			return false;
+		}
+		if (this.tieneCuentaCaptacionBxI == null) {
+			if (other.tieneCuentaCaptacionBxI != null) {
+				return false;
+			}
+		} else if (!this.tieneCuentaCaptacionBxI
+				.equals(other.tieneCuentaCaptacionBxI)) {
+			return false;
+		}
+		if (this.cumpleCondiciones == null) {
+			if (other.cumpleCondiciones != null) {
+				return false;
+			}
+		} else if (!this.cumpleCondiciones.equals(other.cumpleCondiciones)) {
+			return false;
+		}
+		if (this.estaEnUltimos3Meses == null) {
+			if (other.estaEnUltimos3Meses != null) {
+				return false;
+			}
+		} else if (!this.estaEnUltimos3Meses.equals(other.estaEnUltimos3Meses)) {
+			return false;
+		}
+		if (this.esCuentaActiva == null) {
+			if (other.esCuentaActiva != null) {
+				return false;
+			}
+		} else if (!this.esCuentaActiva.equals(other.esCuentaActiva)) {
+			return false;
+		}
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+		return true;
+	}
+}
+

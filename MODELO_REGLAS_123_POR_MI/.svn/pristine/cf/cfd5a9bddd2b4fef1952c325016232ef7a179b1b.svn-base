@@ -1,0 +1,186 @@
+/**********************************************************************************************************************
+ * Copyright Â© 2010 - 2016, Accenture Software, All Rights Reserved.
+ * 
+ * Project Name:    PF_FACTORY_BH_SERVICES
+ *
+ * Description:     pff Business Hub Services project contains entity data and 
+ *                  implements both the business logic and the access layer with external systems  
+ *                  (databases, external legacies through ESB, etc.) of pff application
+ *
+ * Application:     Product and Fee Factory
+ * 
+ * Company:         Accenture 
+ * 
+ * The trademarks used in these materials are the properties of their respective owners.
+ * This work is protected by copyright law and contains valuable trade secrets and confidential information.
+ **********************************************************************************************************************
+ */
+package com.accenture.ang.pffactory.referencial.entity.odm;
+import java.io.Serializable;
+
+/**
+ * A Class representation of the 'Modelo123xMiOdm' model object.
+ * 
+ * @generated
+ */
+public class Modelo123xMiOdm implements Serializable {
+	/**
+	 * Default serial version UID.
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Member variable for Prime Number Hashcode.
+	 */
+	private static final int PRIME_NUMBER_HASHCODE = 31;
+
+	/**
+	 * In Product&Fee Factory, a product is composed of items (product
+	 * characteristics). For an item of type 'Simple' (String, Decimal, Integer,
+	 * Percentage), this property is the value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	private String claveDefinitiva;
+
+	/**
+	 * In Product&Fee Factory, a product is composed of items (product
+	 * characteristics). For an item of type 'Simple' (String, Decimal, Integer,
+	 * Percentage), this property is the value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	private String claveEmpaquetamiento;
+
+	/**
+	 * Retrieves the claveDefinitiva.
+	 * 
+	 * @return In Product&Fee Factory, a product is composed of items (product
+	 *         characteristics). For an item of type 'Simple' (String, Decimal,
+	 *         Integer, Percentage), this property is the value assigned to the
+	 *         item..
+	 * 
+	 * @generated
+	 */
+	public String getClaveDefinitiva() {
+		/* Begin: Custom Code */
+		return this.claveDefinitiva;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the claveDefinitiva.
+	 * 
+	 * @param claveDefinitiva
+	 *            In Product&Fee Factory, a product is composed of items
+	 *            (product characteristics). For an item of type 'Simple'
+	 *            (String, Decimal, Integer, Percentage), this property is the
+	 *            value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	public void setClaveDefinitiva(String claveDefinitiva) {
+		this.claveDefinitiva = claveDefinitiva;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the claveEmpaquetamiento.
+	 * 
+	 * @return In Product&Fee Factory, a product is composed of items (product
+	 *         characteristics). For an item of type 'Simple' (String, Decimal,
+	 *         Integer, Percentage), this property is the value assigned to the
+	 *         item..
+	 * 
+	 * @generated
+	 */
+	public String getClaveEmpaquetamiento() {
+		/* Begin: Custom Code */
+		return this.claveEmpaquetamiento;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the claveEmpaquetamiento.
+	 * 
+	 * @param claveEmpaquetamiento
+	 *            In Product&Fee Factory, a product is composed of items
+	 *            (product characteristics). For an item of type 'Simple'
+	 *            (String, Decimal, Integer, Percentage), this property is the
+	 *            value assigned to the item..
+	 * 
+	 * @generated
+	 */
+	public void setClaveEmpaquetamiento(String claveEmpaquetamiento) {
+		this.claveEmpaquetamiento = claveEmpaquetamiento;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Method to generate hash code value of each attribute.
+	 * 
+	 * @return a hash code value for this object.
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int hashCode() {
+		int result = 1;
+		result = Modelo123xMiOdm.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.claveDefinitiva == null) ? 0 : this.claveDefinitiva
+						.hashCode());
+		result = Modelo123xMiOdm.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.claveEmpaquetamiento == null) ? 0
+						: this.claveEmpaquetamiento.hashCode());
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+		return result;
+	}
+
+	/**
+	 * Indicates whether some other object is "equal to" this one.
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare.
+	 * @return true if this object is the same as the obj argument; false
+	 *         otherwise.
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		Modelo123xMiOdm other = (Modelo123xMiOdm) obj;
+		if (this.claveDefinitiva == null) {
+			if (other.claveDefinitiva != null) {
+				return false;
+			}
+		} else if (!this.claveDefinitiva.equals(other.claveDefinitiva)) {
+			return false;
+		}
+		if (this.claveEmpaquetamiento == null) {
+			if (other.claveEmpaquetamiento != null) {
+				return false;
+			}
+		} else if (!this.claveEmpaquetamiento
+				.equals(other.claveEmpaquetamiento)) {
+			return false;
+		}
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+		return true;
+	}
+}
+

@@ -1,0 +1,178 @@
+/**********************************************************************************************************************
+ * Copyright Â© 2010 - 2015, Accenture Software, All Rights Reserved.
+ * 
+ * Project Name:    PF_FACTORY_BH_SERVICES
+ *
+ * Description:     pff Business Hub Services project contains entity data and 
+ *                  implements both the business logic and the access layer with external systems  
+ *                  (databases, external legacies through ESB, etc.) of pff application
+ *
+ * Application:     Product and Fee Factory
+ * 
+ * Company:         Accenture 
+ * 
+ * The trademarks used in these materials are the properties of their respective owners.
+ * This work is protected by copyright law and contains valuable trade secrets and confidential information.
+ **********************************************************************************************************************
+ */
+package com.accenture.ang.pffactory.referencial.entity.pricingdwh;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.Digits;
+
+/**
+ * A Class representation of the 'CamposPrestamos' model object.
+ * 
+ * @generated
+ */
+@Entity(name = "pff_camposprestamos")
+public class CamposPrestamos implements Serializable {
+	/**
+	 * Default serial version UID.
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Member variable for Prime Number Hashcode.
+	 */
+	private static final int PRIME_NUMBER_HASHCODE = 31;
+
+	/**
+	 * The contractDetails attribute.
+	 * 
+	 * @generated
+	 */
+	private ContractDetails contractDetails;
+
+	/**
+	 * The idPrestamos attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 20, fraction = 0)
+	private Long idPrestamos;
+
+	/**
+	 * Retrieves the contractDetails.
+	 * 
+	 * @return the contractDetails return value.
+	 * 
+	 * @generated
+	 */
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "contractDetails_id", referencedColumnName = "id")
+	public ContractDetails getContractDetails() {
+		/* Begin: Custom Code */
+		return this.contractDetails;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the contractDetails.
+	 * 
+	 * @param contractDetails
+	 *            the contractDetails parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setContractDetails(ContractDetails contractDetails) {
+		this.contractDetails = contractDetails;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the idPrestamos.
+	 * 
+	 * @return the idPrestamos return value.
+	 * 
+	 * @generated
+	 */
+	@Column(nullable = false, length = 0, precision = 20)
+	@Id
+	public Long getIdPrestamos() {
+		/* Begin: Custom Code */
+		return this.idPrestamos;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the idPrestamos.
+	 * 
+	 * @param idPrestamos
+	 *            the idPrestamos parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setIdPrestamos(Long idPrestamos) {
+		this.idPrestamos = idPrestamos;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Method to generate hash code value of each attribute.
+	 * 
+	 * @return a hash code value for this object.
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int hashCode() {
+		int result = 1;
+		result = CamposPrestamos.PRIME_NUMBER_HASHCODE
+				* result
+				+ ((this.idPrestamos == null) ? 0 : this.idPrestamos.hashCode());
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+		return result;
+	}
+
+	/**
+	 * Indicates whether some other object is "equal to" this one.
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare.
+	 * @return true if this object is the same as the obj argument; false
+	 *         otherwise.
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		CamposPrestamos other = (CamposPrestamos) obj;
+		if (this.contractDetails == null) {
+			if (other.contractDetails != null) {
+				return false;
+			}
+		} else if (!this.contractDetails.equals(other.contractDetails)) {
+			return false;
+		}
+		if (this.idPrestamos == null) {
+			if (other.idPrestamos != null) {
+				return false;
+			}
+		} else if (!this.idPrestamos.equals(other.idPrestamos)) {
+			return false;
+		}
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+		return true;
+	}
+}
+

@@ -1,0 +1,2176 @@
+/**********************************************************************************************************************
+ * Copyright © 2010 - 2012, Accenture Software, All Rights Reserved.
+ * 
+ * Project Name: PF_FACTORY_BH_SERVICES
+ * 
+ * Description: pff Business Hub Services project contains entity data and implements both the business logic and the
+ * access layer with external systems (databases, external legacies through ESB, etc.) of pff application
+ * 
+ * Application: Product and Fee Factory
+ * 
+ * Company: Accenture
+ * 
+ * The trademarks used in these materials are the properties of their respective owners. This work is protected by
+ * copyright law and contains valuable trade secrets and confidential information.
+ ********************************************************************************************************************** 
+ */
+package com.accenture.ang.pffactory.referencial.entity.pricingdwh;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
+import javax.persistence.Version;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
+
+import com.accenture.ang.common.enums.ChannelCodeEnum;
+import com.accenture.ang.common.referencial.audit.AuditEntity;
+//import com.accenture.ang.common.validation.CodeTable;
+import com.accenture.ang.customerinformation.common.enums.ContactPreferenceTimeZoneEnum;
+import com.accenture.ang.customerinformation.common.enums.PartyGenderEnum;
+import com.accenture.ang.customerinformation.common.enums.PartyOtherPhoneTypeEnum;
+import com.accenture.ang.customerinformation.common.enums.PartyStatusEnum;
+import com.accenture.ang.customerinformation.common.enums.PartyTitleEnum;
+import com.accenture.ang.customerinformation.common.enums.PartyTypeEnum;
+
+/**
+ * Represent the customers details..
+ * 
+ * @generated
+ */
+@Table(name = "pff_customerdetails", uniqueConstraints = { @UniqueConstraint(name = "uni_customer", columnNames = {
+		"partyId", "entity", "entity2" }) })
+@Entity(name = "pff_customerdetails")
+public class CustomerDetails extends AuditEntity implements Serializable {
+
+    /**
+     * Default serial version UID.
+     */
+    private static final long serialVersionUID = 1L;
+    /**
+     * Member variable for Prime Number Hashcode.
+     */
+    private static final int PRIME_NUMBER_HASHCODE = 31;
+    /**
+	 * The customerIndicator attribute.
+	 * 
+	 * @generated
+	 */
+    private CustomerIndicator customerIndicator;
+    /**
+	 * The contractCustomer attribute.
+	 * 
+	 * @generated
+	 */
+    private Set<ContractCustomer> contractCustomer;
+    /**
+	 * Party number identification.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long partyId;
+    /**
+	 * The partyIdCaptacion attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 20, fraction = 0)
+	private Long partyIdCaptacion;
+	/**
+	 * The partyIdTarjetas attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 20, fraction = 0)
+	private Long partyIdTarjetas;
+	/**
+	 * The partyIdInternet attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 20, fraction = 0)
+	private Long partyIdInternet;
+	/**
+	 * Overall organisation code identification (entity) in the system.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 4)
+    private String entity;
+    /**
+	 * Specific organisation subcode identification (entity) in the system..
+	 * 
+	 * @generated
+	 */
+    @Size(max = 4)
+    private String entity2;
+    /**
+	 * Party Id managed in order to be adapted to the Entity/System requirements
+	 * for showing in the GUI.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 50)
+    private String externalPartyId;
+    /**
+	 * The registrationBranch attribute.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 4)
+    private String registrationBranch;
+    /**
+	 * Type of party.
+	 * 
+	 * @generated
+	 */
+    private PartyTypeEnum type;
+    /**
+	 * Status of the relationship between the party and the system.
+	 * 
+	 * @generated
+	 */
+    private PartyStatusEnum status;
+    /**
+	 * Title of a personal party, for examole, Mr, Mrs, ....
+	 * 
+	 * @generated
+	 */
+    private PartyTitleEnum title;
+    /**
+	 * Forename of a personal party.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 20)
+    private String forename;
+    /**
+	 * Midname of a personal party.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 20)
+    private String midname;
+    /**
+	 * Surname of a personal party.
+	 * 
+	 * @generated
+	 */
+	@Size(max = 20)
+	private String surname1;
+	/**
+	 * The surname2 attribute.
+	 * 
+	 * @generated
+	 */
+	@Size(max = 20)
+	private String surname2;
+	/**
+	 * Gender of a party personal.
+	 * 
+	 * @generated
+	 */
+    private PartyGenderEnum gender;
+    /**
+	 * Name of the company (legal entity) for a party commercial.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 20)
+    private String legalEntityName;
+    /**
+	 * Segment of population which the party belongs to.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//    @CodeTable(tableName = "codetable.common.codetable.segment")
+    private String segment;
+    /**
+	 * The banca attribute.
+	 * 
+	 * @generated
+	 */
+	@Size(max = 50)
+	private String banca;
+	/**
+	 * Flag to indicate if the party lives in the country where the system stay.
+	 * 
+	 * @generated
+	 */
+    private Boolean residentFlag;
+    /**
+	 * Country name where the party lives.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 3)
+//    @CodeTable(tableName = "codetable.common.country.country")
+    private String residenceCountry;
+    /**
+	 * Reference number of a party which is used in some countries (i.e. EEUU)
+	 * for management issues.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 30)
+    private String referenceNum;
+    /**
+	 * Date of birthday of a party personal.
+	 * 
+	 * @generated
+	 */
+    private Date partyDOB;
+    /**
+	 * Country name where the party was born.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 3)
+//    @CodeTable(tableName = "codetable.common.country.country")
+    private String countryBirth;
+    /**
+	 * Registration channel for a party registration.
+	 * 
+	 * @generated
+	 */
+    private ChannelCodeEnum registrationChannel;
+    /**
+	 * Confidential status of a party like VIP or Politically Exposed Status.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//    @CodeTable(tableName = "codetable.common.codetable.confidential_status")
+    private String confidentialStatus;
+    /**
+	 * Party preferred language.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 7)
+//    @CodeTable(tableName = "codetable.common.codetable.language")
+    private String language;
+    /**
+	 * Nationality of the customer.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 3)
+//    @CodeTable(tableName = "codetable.common.country.country")
+    private String nationality;
+    /**
+	 * Know your customer status of the party.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//    @CodeTable(tableName = "codetable.common.codetable.KYC")
+    private String kYCStatus;
+    /**
+	 * High risk country status of the party.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//    @CodeTable(tableName = "codetable.common.codetable.high_risk_country_values")
+    private String highRiskCountry;
+    /**
+	 * High risk customer status of the party.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//	@CodeTable(tableName = "codetable.customerinformation.codetable.high_risk_customer")
+    private String highRiskCustomer;
+    /**
+	 * Home phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    private String homePhone;
+    /**
+	 * Work phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    private String workPhone;
+    /**
+	 * Mobile phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    private String mobilePhone;
+    /**
+	 * Other additional phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    private String otherPhone;
+    /**
+	 * Type for the additional phone number included in otherPhone attribute..
+	 * 
+	 * @generated
+	 */
+    private PartyOtherPhoneTypeEnum otherPhoneType;
+    /**
+	 * Cancel reason for logic removing.
+	 * 
+	 * @generated
+	 */
+    @Size(max = 5)
+//    @CodeTable(tableName = "codetable.customerinformation.codetable.cancel_reason_party")
+    private String cancelReason;
+    /**
+	 * Starting date of the slot when the contact is active for a party.
+	 * 
+	 * @generated
+	 */
+    private Date startDate;
+    /**
+	 * Ending date of the slot when the party is active in the system.
+	 * 
+	 * @generated
+	 */
+    private Date annulmentDate;
+    /**
+	 * Contact preference which indicates the timezone to be considered to
+	 * contact.
+	 * 
+	 * @generated
+	 */
+    private ContactPreferenceTimeZoneEnum timeZone;
+    /**
+	 * Deceased date of a party personal.
+	 * 
+	 * @generated
+	 */
+    private Date deceaseDate;
+    /**
+	 * Data version of a set of data (usually a table) to avoid concurrency in
+	 * the system.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 10, fraction = 0)
+    private Long dataVersion;
+
+    /**
+	 * Additional field reserved for additional infromation regarding the party
+	 * basic data..
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 7, fraction = 0)
+	private Integer age;
+	/**
+	 * Second additional field reserved for additional infromation regarding the
+	 * party basic data..
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 8, fraction = 5)
+	private Double monthlyIncome;
+	/**
+	 * The yearsInCurrentJob attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 7, fraction = 0)
+	private Integer yearsInCurrentJob;
+	/**
+	 * The yearsInCurrentResidence attribute.
+	 * 
+	 * @generated
+	 */
+	@Digits(integer = 7, fraction = 0)
+	private Integer yearsInCurrentResidence;
+	/**
+	 * The incomeStatement attribute.
+	 * 
+	 * @generated
+	 */
+	private Boolean incomeStatement;
+
+	/**
+	 * Retrieves the customerIndicator.
+	 * 
+	 * @return the customerIndicator return value.
+	 * 
+	 * @generated
+	 */
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "customerDetails")
+    public CustomerIndicator getCustomerIndicator() {
+		/* Begin: Custom Code */
+        return this.customerIndicator;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the customerIndicator.
+	 * 
+	 * @param customerIndicator
+	 *            the customerIndicator parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setCustomerIndicator(CustomerIndicator customerIndicator) {
+		this.customerIndicator = customerIndicator;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the contractCustomer.
+	 * 
+	 * @return the contractCustomer return value.
+	 * 
+	 * @generated
+	 */
+    @OneToMany(mappedBy = "customerDetails")
+    public Set<ContractCustomer> getContractCustomer() {
+		/* Begin: Custom Code */
+        return this.contractCustomer;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the contractCustomer.
+	 * 
+	 * @param contractCustomer
+	 *            the contractCustomer parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setContractCustomer(Set<ContractCustomer> contractCustomer) {
+		this.contractCustomer = contractCustomer;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the partyId.
+	 * 
+	 * @return Party number identification.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 0, precision = 20)
+    @Id
+    public Long getPartyId() {
+		/* Begin: Custom Code */
+        return this.partyId;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the partyId.
+	 * 
+	 * @param partyId
+	 *            Party number identification.
+	 * 
+	 * @generated
+	 */
+    public void setPartyId(Long partyId) {
+		this.partyId = partyId;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the partyIdCaptacion.
+	 * 
+	 * @return the partyIdCaptacion return value.
+	 * 
+	 * @generated
+	 */
+	@Column(nullable = false, length = 0, precision = 20)
+	public Long getPartyIdCaptacion() {
+		/* Begin: Custom Code */
+		return this.partyIdCaptacion;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the partyIdCaptacion.
+	 * 
+	 * @param partyIdCaptacion
+	 *            the partyIdCaptacion parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setPartyIdCaptacion(Long partyIdCaptacion) {
+		this.partyIdCaptacion = partyIdCaptacion;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the partyIdTarjetas.
+	 * 
+	 * @return the partyIdTarjetas return value.
+	 * 
+	 * @generated
+	 */
+	@Column(nullable = false, length = 0, precision = 20)
+	public Long getPartyIdTarjetas() {
+		/* Begin: Custom Code */
+		return this.partyIdTarjetas;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the partyIdTarjetas.
+	 * 
+	 * @param partyIdTarjetas
+	 *            the partyIdTarjetas parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setPartyIdTarjetas(Long partyIdTarjetas) {
+		this.partyIdTarjetas = partyIdTarjetas;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the partyIdInternet.
+	 * 
+	 * @return the partyIdInternet return value.
+	 * 
+	 * @generated
+	 */
+	@Column(nullable = false, length = 0, precision = 20)
+	public Long getPartyIdInternet() {
+		/* Begin: Custom Code */
+		return this.partyIdInternet;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the partyIdInternet.
+	 * 
+	 * @param partyIdInternet
+	 *            the partyIdInternet parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setPartyIdInternet(Long partyIdInternet) {
+		this.partyIdInternet = partyIdInternet;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the entity.
+	 * 
+	 * @return Overall organisation code identification (entity) in the system.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 4)
+    public String getEntity() {
+		/* Begin: Custom Code */
+        return this.entity;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the entity.
+	 * 
+	 * @param entity
+	 *            Overall organisation code identification (entity) in the
+	 *            system.
+	 * 
+	 * @generated
+	 */
+    public void setEntity(String entity) {
+		this.entity = entity;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the entity2.
+	 * 
+	 * @return Specific organisation subcode identification (entity) in the
+	 *         system..
+	 * 
+	 * @generated
+	 */
+    @Column(length = 4)
+    public String getEntity2() {
+		/* Begin: Custom Code */
+        return this.entity2;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the entity2.
+	 * 
+	 * @param entity2
+	 *            Specific organisation subcode identification (entity) in the
+	 *            system..
+	 * 
+	 * @generated
+	 */
+    public void setEntity2(String entity2) {
+		this.entity2 = entity2;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the externalPartyId.
+	 * 
+	 * @return Party Id managed in order to be adapted to the Entity/System
+	 *         requirements for showing in the GUI.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 20)
+    public String getExternalPartyId() {
+		/* Begin: Custom Code */
+        return this.externalPartyId;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the externalPartyId.
+	 * 
+	 * @param externalPartyId
+	 *            Party Id managed in order to be adapted to the Entity/System
+	 *            requirements for showing in the GUI.
+	 * 
+	 * @generated
+	 */
+    public void setExternalPartyId(String externalPartyId) {
+		this.externalPartyId = externalPartyId;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the registrationBranch.
+	 * 
+	 * @return the registrationBranch return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 4)
+    public String getRegistrationBranch() {
+		/* Begin: Custom Code */
+        return this.registrationBranch;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the registrationBranch.
+	 * 
+	 * @param registrationBranch
+	 *            the registrationBranch parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setRegistrationBranch(String registrationBranch) {
+		this.registrationBranch = registrationBranch;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the type.
+	 * 
+	 * @return Type of party.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 5)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.customerinformation.common.enums.PartyTypeEnum"))
+    public PartyTypeEnum getType() {
+		/* Begin: Custom Code */
+        return this.type;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the type.
+	 * 
+	 * @param type
+	 *            Type of party.
+	 * 
+	 * @generated
+	 */
+    public void setType(PartyTypeEnum type) {
+		this.type = type;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the status.
+	 * 
+	 * @return Status of the relationship between the party and the system.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 5)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.customerinformation.common.enums.PartyStatusEnum"))
+    public PartyStatusEnum getStatus() {
+		/* Begin: Custom Code */
+        return this.status;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the status.
+	 * 
+	 * @param status
+	 *            Status of the relationship between the party and the system.
+	 * 
+	 * @generated
+	 */
+    public void setStatus(PartyStatusEnum status) {
+		this.status = status;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the title.
+	 * 
+	 * @return Title of a personal party, for examole, Mr, Mrs, ....
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.customerinformation.common.enums.PartyTitleEnum"))
+    public PartyTitleEnum getTitle() {
+		/* Begin: Custom Code */
+        return this.title;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the title.
+	 * 
+	 * @param title
+	 *            Title of a personal party, for examole, Mr, Mrs, ....
+	 * 
+	 * @generated
+	 */
+    public void setTitle(PartyTitleEnum title) {
+		this.title = title;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the forename.
+	 * 
+	 * @return Forename of a personal party.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 20)
+    public String getForename() {
+		/* Begin: Custom Code */
+        return this.forename;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the forename.
+	 * 
+	 * @param forename
+	 *            Forename of a personal party.
+	 * 
+	 * @generated
+	 */
+    public void setForename(String forename) {
+		this.forename = forename;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the midname.
+	 * 
+	 * @return Midname of a personal party.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 20)
+    public String getMidname() {
+		/* Begin: Custom Code */
+        return this.midname;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the midname.
+	 * 
+	 * @param midname
+	 *            Midname of a personal party.
+	 * 
+	 * @generated
+	 */
+    public void setMidname(String midname) {
+		this.midname = midname;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the surname1.
+	 * 
+	 * @return Surname of a personal party.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 20)
+	public String getSurname1() {
+		/* Begin: Custom Code */
+		return this.surname1;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the surname1.
+	 * 
+	 * @param surname1
+	 *            Surname of a personal party.
+	 * 
+	 * @generated
+	 */
+	public void setSurname1(String surname1) {
+		this.surname1 = surname1;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the surname2.
+	 * 
+	 * @return the surname2 return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 20)
+	public String getSurname2() {
+		/* Begin: Custom Code */
+		return this.surname2;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the surname2.
+	 * 
+	 * @param surname2
+	 *            the surname2 parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setSurname2(String surname2) {
+		this.surname2 = surname2;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the gender.
+	 * 
+	 * @return Gender of a party personal.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.customerinformation.common.enums.PartyGenderEnum"))
+    public PartyGenderEnum getGender() {
+		/* Begin: Custom Code */
+        return this.gender;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the gender.
+	 * 
+	 * @param gender
+	 *            Gender of a party personal.
+	 * 
+	 * @generated
+	 */
+    public void setGender(PartyGenderEnum gender) {
+		this.gender = gender;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the legalEntityName.
+	 * 
+	 * @return Name of the company (legal entity) for a party commercial.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 20)
+    public String getLegalEntityName() {
+		/* Begin: Custom Code */
+        return this.legalEntityName;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the legalEntityName.
+	 * 
+	 * @param legalEntityName
+	 *            Name of the company (legal entity) for a party commercial.
+	 * 
+	 * @generated
+	 */
+    public void setLegalEntityName(String legalEntityName) {
+		this.legalEntityName = legalEntityName;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the segment.
+	 * 
+	 * @return Segment of population which the party belongs to.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    public String getSegment() {
+		/* Begin: Custom Code */
+        return this.segment;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the segment.
+	 * 
+	 * @param segment
+	 *            Segment of population which the party belongs to.
+	 * 
+	 * @generated
+	 */
+    public void setSegment(String segment) {
+		this.segment = segment;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the banca.
+	 * 
+	 * @return the banca return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 50)
+	public String getBanca() {
+		/* Begin: Custom Code */
+		return this.banca;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the banca.
+	 * 
+	 * @param banca
+	 *            the banca parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setBanca(String banca) {
+		this.banca = banca;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the residentFlag.
+	 * 
+	 * @return Flag to indicate if the party lives in the country where the
+	 *         system stay.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false)
+    public Boolean getResidentFlag() {
+		/* Begin: Custom Code */
+        return this.residentFlag;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the residentFlag.
+	 * 
+	 * @param residentFlag
+	 *            Flag to indicate if the party lives in the country where the
+	 *            system stay.
+	 * 
+	 * @generated
+	 */
+    public void setResidentFlag(Boolean residentFlag) {
+		this.residentFlag = residentFlag;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the residenceCountry.
+	 * 
+	 * @return Country name where the party lives.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 3)
+    public String getResidenceCountry() {
+		/* Begin: Custom Code */
+        return this.residenceCountry;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the residenceCountry.
+	 * 
+	 * @param residenceCountry
+	 *            Country name where the party lives.
+	 * 
+	 * @generated
+	 */
+    public void setResidenceCountry(String residenceCountry) {
+		this.residenceCountry = residenceCountry;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the referenceNum.
+	 * 
+	 * @return Reference number of a party which is used in some countries (i.e.
+	 *         EEUU) for management issues.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 30)
+    public String getReferenceNum() {
+		/* Begin: Custom Code */
+        return this.referenceNum;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the referenceNum.
+	 * 
+	 * @param referenceNum
+	 *            Reference number of a party which is used in some countries
+	 *            (i.e. EEUU) for management issues.
+	 * 
+	 * @generated
+	 */
+    public void setReferenceNum(String referenceNum) {
+		this.referenceNum = referenceNum;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the partyDOB.
+	 * 
+	 * @return Date of birthday of a party personal.
+	 * 
+	 * @generated
+	 */
+    @Temporal(TemporalType.DATE)
+    public Date getPartyDOB() {
+		/* Begin: Custom Code */
+        return (this.partyDOB == null) ? null : (Date) this.partyDOB.clone();
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the partyDOB.
+	 * 
+	 * @param partyDOB
+	 *            Date of birthday of a party personal.
+	 * 
+	 * @generated
+	 */
+    public void setPartyDOB(Date partyDOB) {
+		this.partyDOB = (partyDOB == null) ? null : (Date) partyDOB.clone();
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the countryBirth.
+	 * 
+	 * @return Country name where the party was born.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 3)
+    public String getCountryBirth() {
+		/* Begin: Custom Code */
+        return this.countryBirth;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the countryBirth.
+	 * 
+	 * @param countryBirth
+	 *            Country name where the party was born.
+	 * 
+	 * @generated
+	 */
+    public void setCountryBirth(String countryBirth) {
+		this.countryBirth = countryBirth;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the registrationChannel.
+	 * 
+	 * @return Registration channel for a party registration.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 20)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.common.enums.ChannelCodeEnum"))
+    public ChannelCodeEnum getRegistrationChannel() {
+		/* Begin: Custom Code */
+        return this.registrationChannel;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the registrationChannel.
+	 * 
+	 * @param registrationChannel
+	 *            Registration channel for a party registration.
+	 * 
+	 * @generated
+	 */
+    public void setRegistrationChannel(ChannelCodeEnum registrationChannel) {
+		this.registrationChannel = registrationChannel;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the confidentialStatus.
+	 * 
+	 * @return Confidential status of a party like VIP or Politically Exposed
+	 *         Status.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    public String getConfidentialStatus() {
+		/* Begin: Custom Code */
+        return this.confidentialStatus;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the confidentialStatus.
+	 * 
+	 * @param confidentialStatus
+	 *            Confidential status of a party like VIP or Politically Exposed
+	 *            Status.
+	 * 
+	 * @generated
+	 */
+    public void setConfidentialStatus(String confidentialStatus) {
+		this.confidentialStatus = confidentialStatus;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the language.
+	 * 
+	 * @return Party preferred language.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 7)
+    public String getLanguage() {
+		/* Begin: Custom Code */
+        return this.language;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the language.
+	 * 
+	 * @param language
+	 *            Party preferred language.
+	 * 
+	 * @generated
+	 */
+    public void setLanguage(String language) {
+		this.language = language;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the nationality.
+	 * 
+	 * @return Nationality of the customer.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 3)
+    public String getNationality() {
+		/* Begin: Custom Code */
+        return this.nationality;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the nationality.
+	 * 
+	 * @param nationality
+	 *            Nationality of the customer.
+	 * 
+	 * @generated
+	 */
+    public void setNationality(String nationality) {
+		this.nationality = nationality;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the kYCStatus.
+	 * 
+	 * @return Know your customer status of the party.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    public String getKYCStatus() {
+		/* Begin: Custom Code */
+        return this.kYCStatus;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the kYCStatus.
+	 * 
+	 * @param kYCStatus
+	 *            Know your customer status of the party.
+	 * 
+	 * @generated
+	 */
+    public void setKYCStatus(String kYCStatus) {
+		this.kYCStatus = kYCStatus;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the highRiskCountry.
+	 * 
+	 * @return High risk country status of the party.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    public String getHighRiskCountry() {
+		/* Begin: Custom Code */
+        return this.highRiskCountry;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the highRiskCountry.
+	 * 
+	 * @param highRiskCountry
+	 *            High risk country status of the party.
+	 * 
+	 * @generated
+	 */
+    public void setHighRiskCountry(String highRiskCountry) {
+		this.highRiskCountry = highRiskCountry;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the highRiskCustomer.
+	 * 
+	 * @return High risk customer status of the party.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    public String getHighRiskCustomer() {
+		/* Begin: Custom Code */
+        return this.highRiskCustomer;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the highRiskCustomer.
+	 * 
+	 * @param highRiskCustomer
+	 *            High risk customer status of the party.
+	 * 
+	 * @generated
+	 */
+    public void setHighRiskCustomer(String highRiskCustomer) {
+		this.highRiskCustomer = highRiskCustomer;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the homePhone.
+	 * 
+	 * @return Home phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 15)
+    public String getHomePhone() {
+		/* Begin: Custom Code */
+        return this.homePhone;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the homePhone.
+	 * 
+	 * @param homePhone
+	 *            Home phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    public void setHomePhone(String homePhone) {
+		this.homePhone = homePhone;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the workPhone.
+	 * 
+	 * @return Work phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 15)
+    public String getWorkPhone() {
+		/* Begin: Custom Code */
+        return this.workPhone;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the workPhone.
+	 * 
+	 * @param workPhone
+	 *            Work phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    public void setWorkPhone(String workPhone) {
+		this.workPhone = workPhone;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the mobilePhone.
+	 * 
+	 * @return Mobile phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 15)
+    public String getMobilePhone() {
+		/* Begin: Custom Code */
+        return this.mobilePhone;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the mobilePhone.
+	 * 
+	 * @param mobilePhone
+	 *            Mobile phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    public void setMobilePhone(String mobilePhone) {
+		this.mobilePhone = mobilePhone;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the otherPhone.
+	 * 
+	 * @return Other additional phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 15)
+    public String getOtherPhone() {
+		/* Begin: Custom Code */
+        return this.otherPhone;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the otherPhone.
+	 * 
+	 * @param otherPhone
+	 *            Other additional phone in a contact for a party.
+	 * 
+	 * @generated
+	 */
+    public void setOtherPhone(String otherPhone) {
+		this.otherPhone = otherPhone;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the otherPhoneType.
+	 * 
+	 * @return Type for the additional phone number included in otherPhone
+	 *         attribute..
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.customerinformation.common.enums.PartyOtherPhoneTypeEnum"))
+    public PartyOtherPhoneTypeEnum getOtherPhoneType() {
+		/* Begin: Custom Code */
+        return this.otherPhoneType;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the otherPhoneType.
+	 * 
+	 * @param otherPhoneType
+	 *            Type for the additional phone number included in otherPhone
+	 *            attribute..
+	 * 
+	 * @generated
+	 */
+    public void setOtherPhoneType(PartyOtherPhoneTypeEnum otherPhoneType) {
+		this.otherPhoneType = otherPhoneType;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the cancelReason.
+	 * 
+	 * @return Cancel reason for logic removing.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    public String getCancelReason() {
+		/* Begin: Custom Code */
+        return this.cancelReason;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the cancelReason.
+	 * 
+	 * @param cancelReason
+	 *            Cancel reason for logic removing.
+	 * 
+	 * @generated
+	 */
+    public void setCancelReason(String cancelReason) {
+		this.cancelReason = cancelReason;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the startDate.
+	 * 
+	 * @return Starting date of the slot when the contact is active for a party.
+	 * 
+	 * @generated
+	 */
+    @Temporal(TemporalType.DATE)
+    public Date getStartDate() {
+		/* Begin: Custom Code */
+        return (this.startDate == null) ? null : (Date) this.startDate.clone();
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the startDate.
+	 * 
+	 * @param startDate
+	 *            Starting date of the slot when the contact is active for a
+	 *            party.
+	 * 
+	 * @generated
+	 */
+    public void setStartDate(Date startDate) {
+		this.startDate = (startDate == null) ? null : (Date) startDate.clone();
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the annulmentDate.
+	 * 
+	 * @return Ending date of the slot when the party is active in the system.
+	 * 
+	 * @generated
+	 */
+    @Temporal(TemporalType.DATE)
+    public Date getAnnulmentDate() {
+		/* Begin: Custom Code */
+        return (this.annulmentDate == null) ? null : (Date) this.annulmentDate.clone();
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the annulmentDate.
+	 * 
+	 * @param annulmentDate
+	 *            Ending date of the slot when the party is active in the
+	 *            system.
+	 * 
+	 * @generated
+	 */
+    public void setAnnulmentDate(Date annulmentDate) {
+		this.annulmentDate = (annulmentDate == null) ? null
+				: (Date) annulmentDate.clone();
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the timeZone.
+	 * 
+	 * @return Contact preference which indicates the timezone to be considered
+	 *         to contact.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 5)
+    @Type(type = "com.accenture.ang.common.mapping.EnumHibernateType", parameters = @Parameter(name = "type", value = "com.accenture.ang.customerinformation.common.enums.ContactPreferenceTimeZoneEnum"))
+    public ContactPreferenceTimeZoneEnum getTimeZone() {
+		/* Begin: Custom Code */
+        return this.timeZone;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the timeZone.
+	 * 
+	 * @param timeZone
+	 *            Contact preference which indicates the timezone to be
+	 *            considered to contact.
+	 * 
+	 * @generated
+	 */
+    public void setTimeZone(ContactPreferenceTimeZoneEnum timeZone) {
+		this.timeZone = timeZone;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the deceaseDate.
+	 * 
+	 * @return Deceased date of a party personal.
+	 * 
+	 * @generated
+	 */
+    @Temporal(TemporalType.DATE)
+    public Date getDeceaseDate() {
+		/* Begin: Custom Code */
+        return (this.deceaseDate == null) ? null : (Date) this.deceaseDate.clone();
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the deceaseDate.
+	 * 
+	 * @param deceaseDate
+	 *            Deceased date of a party personal.
+	 * 
+	 * @generated
+	 */
+    public void setDeceaseDate(Date deceaseDate) {
+		this.deceaseDate = (deceaseDate == null) ? null : (Date) deceaseDate
+				.clone();
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the dataVersion.
+	 * 
+	 * @return Data version of a set of data (usually a table) to avoid
+	 *         concurrency in the system.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 10)
+    @Version
+    public Long getDataVersion() {
+		/* Begin: Custom Code */
+        return this.dataVersion;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the dataVersion.
+	 * 
+	 * @param dataVersion
+	 *            Data version of a set of data (usually a table) to avoid
+	 *            concurrency in the system.
+	 * 
+	 * @generated
+	 */
+    public void setDataVersion(Long dataVersion) {
+		this.dataVersion = dataVersion;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the age.
+	 * 
+	 * @return Additional field reserved for additional infromation regarding
+	 *         the party basic data..
+	 * 
+	 * @generated
+	 */
+	@Column(length = 0, precision = 7)
+	public Integer getAge() {
+		/* Begin: Custom Code */
+		return this.age;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the age.
+	 * 
+	 * @param age
+	 *            Additional field reserved for additional infromation regarding
+	 *            the party basic data..
+	 * 
+	 * @generated
+	 */
+	public void setAge(Integer age) {
+		this.age = age;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the monthlyIncome.
+	 * 
+	 * @return Second additional field reserved for additional infromation
+	 *         regarding the party basic data..
+	 * 
+	 * @generated
+	 */
+	@Column(length = 13, precision = 5)
+	public Double getMonthlyIncome() {
+		/* Begin: Custom Code */
+		return this.monthlyIncome;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the monthlyIncome.
+	 * 
+	 * @param monthlyIncome
+	 *            Second additional field reserved for additional infromation
+	 *            regarding the party basic data..
+	 * 
+	 * @generated
+	 */
+	public void setMonthlyIncome(Double monthlyIncome) {
+		this.monthlyIncome = monthlyIncome;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the yearsInCurrentJob.
+	 * 
+	 * @return the yearsInCurrentJob return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 0, precision = 7)
+	public Integer getYearsInCurrentJob() {
+		/* Begin: Custom Code */
+		return this.yearsInCurrentJob;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the yearsInCurrentJob.
+	 * 
+	 * @param yearsInCurrentJob
+	 *            the yearsInCurrentJob parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setYearsInCurrentJob(Integer yearsInCurrentJob) {
+		this.yearsInCurrentJob = yearsInCurrentJob;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the yearsInCurrentResidence.
+	 * 
+	 * @return the yearsInCurrentResidence return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 0, precision = 7)
+	public Integer getYearsInCurrentResidence() {
+		/* Begin: Custom Code */
+		return this.yearsInCurrentResidence;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the yearsInCurrentResidence.
+	 * 
+	 * @param yearsInCurrentResidence
+	 *            the yearsInCurrentResidence parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setYearsInCurrentResidence(Integer yearsInCurrentResidence) {
+		this.yearsInCurrentResidence = yearsInCurrentResidence;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the incomeStatement.
+	 * 
+	 * @return the incomeStatement return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 0)
+	public Boolean getIncomeStatement() {
+		/* Begin: Custom Code */
+		return this.incomeStatement;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the incomeStatement.
+	 * 
+	 * @param incomeStatement
+	 *            the incomeStatement parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setIncomeStatement(Boolean incomeStatement) {
+		this.incomeStatement = incomeStatement;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Method to generate hash code value of each attribute.
+	 * 
+	 * @return a hash code value for this object.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public int hashCode() {
+		int result = super.hashCode();
+		result = CustomerDetails.PRIME_NUMBER_HASHCODE * result
+				+ ((this.partyId == null) ? 0 : this.partyId.hashCode());
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return result;
+	}
+
+    /**
+	 * Indicates whether some other object is "equal to" this one.
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare.
+	 * @return true if this object is the same as the obj argument; false
+	 *         otherwise.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		CustomerDetails other = (CustomerDetails) obj;
+		if (this.customerIndicator == null) {
+			if (other.customerIndicator != null) {
+				return false;
+			}
+		} else if (!this.customerIndicator.equals(other.customerIndicator)) {
+			return false;
+		}
+		if (this.contractCustomer == null) {
+			if (other.contractCustomer != null) {
+				return false;
+			}
+		} else if (!this.contractCustomer.equals(other.contractCustomer)) {
+			return false;
+		}
+		if (this.partyId == null) {
+			if (other.partyId != null) {
+				return false;
+			}
+		} else if (!this.partyId.equals(other.partyId)) {
+			return false;
+		}
+		if (this.partyIdCaptacion == null) {
+			if (other.partyIdCaptacion != null) {
+				return false;
+			}
+		} else if (!this.partyIdCaptacion.equals(other.partyIdCaptacion)) {
+			return false;
+		}
+		if (this.partyIdTarjetas == null) {
+			if (other.partyIdTarjetas != null) {
+				return false;
+			}
+		} else if (!this.partyIdTarjetas.equals(other.partyIdTarjetas)) {
+			return false;
+		}
+		if (this.partyIdInternet == null) {
+			if (other.partyIdInternet != null) {
+				return false;
+			}
+		} else if (!this.partyIdInternet.equals(other.partyIdInternet)) {
+			return false;
+		}
+		if (this.entity == null) {
+			if (other.entity != null) {
+				return false;
+			}
+		} else if (!this.entity.equals(other.entity)) {
+			return false;
+		}
+		if (this.entity2 == null) {
+			if (other.entity2 != null) {
+				return false;
+			}
+		} else if (!this.entity2.equals(other.entity2)) {
+			return false;
+		}
+		if (this.externalPartyId == null) {
+			if (other.externalPartyId != null) {
+				return false;
+			}
+		} else if (!this.externalPartyId.equals(other.externalPartyId)) {
+			return false;
+		}
+		if (this.registrationBranch == null) {
+			if (other.registrationBranch != null) {
+				return false;
+			}
+		} else if (!this.registrationBranch.equals(other.registrationBranch)) {
+			return false;
+		}
+		if (this.type != other.type) {
+			return false;
+		}
+		if (this.status != other.status) {
+			return false;
+		}
+		if (this.title != other.title) {
+			return false;
+		}
+		if (this.forename == null) {
+			if (other.forename != null) {
+				return false;
+			}
+		} else if (!this.forename.equals(other.forename)) {
+			return false;
+		}
+		if (this.midname == null) {
+			if (other.midname != null) {
+				return false;
+			}
+		} else if (!this.midname.equals(other.midname)) {
+			return false;
+		}
+		if (this.surname1 == null) {
+			if (other.surname1 != null) {
+				return false;
+			}
+		} else if (!this.surname1.equals(other.surname1)) {
+			return false;
+		}
+		if (this.surname2 == null) {
+			if (other.surname2 != null) {
+				return false;
+			}
+		} else if (!this.surname2.equals(other.surname2)) {
+			return false;
+		}
+		if (this.gender != other.gender) {
+			return false;
+		}
+		if (this.legalEntityName == null) {
+			if (other.legalEntityName != null) {
+				return false;
+			}
+		} else if (!this.legalEntityName.equals(other.legalEntityName)) {
+			return false;
+		}
+		if (this.segment == null) {
+			if (other.segment != null) {
+				return false;
+			}
+		} else if (!this.segment.equals(other.segment)) {
+			return false;
+		}
+		if (this.banca == null) {
+			if (other.banca != null) {
+				return false;
+			}
+		} else if (!this.banca.equals(other.banca)) {
+			return false;
+		}
+		if (this.residentFlag == null) {
+			if (other.residentFlag != null) {
+				return false;
+			}
+		} else if (!this.residentFlag.equals(other.residentFlag)) {
+			return false;
+		}
+		if (this.residenceCountry == null) {
+			if (other.residenceCountry != null) {
+				return false;
+			}
+		} else if (!this.residenceCountry.equals(other.residenceCountry)) {
+			return false;
+		}
+		if (this.referenceNum == null) {
+			if (other.referenceNum != null) {
+				return false;
+			}
+		} else if (!this.referenceNum.equals(other.referenceNum)) {
+			return false;
+		}
+		if (this.partyDOB == null) {
+			if (other.partyDOB != null) {
+				return false;
+			}
+		} else if (!this.partyDOB.equals(other.partyDOB)) {
+			return false;
+		}
+		if (this.countryBirth == null) {
+			if (other.countryBirth != null) {
+				return false;
+			}
+		} else if (!this.countryBirth.equals(other.countryBirth)) {
+			return false;
+		}
+		if (this.registrationChannel != other.registrationChannel) {
+			return false;
+		}
+		if (this.confidentialStatus == null) {
+			if (other.confidentialStatus != null) {
+				return false;
+			}
+		} else if (!this.confidentialStatus.equals(other.confidentialStatus)) {
+			return false;
+		}
+		if (this.language == null) {
+			if (other.language != null) {
+				return false;
+			}
+		} else if (!this.language.equals(other.language)) {
+			return false;
+		}
+		if (this.nationality == null) {
+			if (other.nationality != null) {
+				return false;
+			}
+		} else if (!this.nationality.equals(other.nationality)) {
+			return false;
+		}
+		if (this.kYCStatus == null) {
+			if (other.kYCStatus != null) {
+				return false;
+			}
+		} else if (!this.kYCStatus.equals(other.kYCStatus)) {
+			return false;
+		}
+		if (this.highRiskCountry == null) {
+			if (other.highRiskCountry != null) {
+				return false;
+			}
+		} else if (!this.highRiskCountry.equals(other.highRiskCountry)) {
+			return false;
+		}
+		if (this.highRiskCustomer == null) {
+			if (other.highRiskCustomer != null) {
+				return false;
+			}
+		} else if (!this.highRiskCustomer.equals(other.highRiskCustomer)) {
+			return false;
+		}
+		if (this.homePhone == null) {
+			if (other.homePhone != null) {
+				return false;
+			}
+		} else if (!this.homePhone.equals(other.homePhone)) {
+			return false;
+		}
+		if (this.workPhone == null) {
+			if (other.workPhone != null) {
+				return false;
+			}
+		} else if (!this.workPhone.equals(other.workPhone)) {
+			return false;
+		}
+		if (this.mobilePhone == null) {
+			if (other.mobilePhone != null) {
+				return false;
+			}
+		} else if (!this.mobilePhone.equals(other.mobilePhone)) {
+			return false;
+		}
+		if (this.otherPhone == null) {
+			if (other.otherPhone != null) {
+				return false;
+			}
+		} else if (!this.otherPhone.equals(other.otherPhone)) {
+			return false;
+		}
+		if (this.otherPhoneType != other.otherPhoneType) {
+			return false;
+		}
+		if (this.cancelReason == null) {
+			if (other.cancelReason != null) {
+				return false;
+			}
+		} else if (!this.cancelReason.equals(other.cancelReason)) {
+			return false;
+		}
+		if (this.startDate == null) {
+			if (other.startDate != null) {
+				return false;
+			}
+		} else if (!this.startDate.equals(other.startDate)) {
+			return false;
+		}
+		if (this.annulmentDate == null) {
+			if (other.annulmentDate != null) {
+				return false;
+			}
+		} else if (!this.annulmentDate.equals(other.annulmentDate)) {
+			return false;
+		}
+		if (this.timeZone != other.timeZone) {
+			return false;
+		}
+		if (this.deceaseDate == null) {
+			if (other.deceaseDate != null) {
+				return false;
+			}
+		} else if (!this.deceaseDate.equals(other.deceaseDate)) {
+			return false;
+		}
+		if (this.dataVersion == null) {
+			if (other.dataVersion != null) {
+				return false;
+			}
+		} else if (!this.dataVersion.equals(other.dataVersion)) {
+			return false;
+		}
+		if (this.age == null) {
+			if (other.age != null) {
+				return false;
+			}
+		} else if (!this.age.equals(other.age)) {
+			return false;
+		}
+		if (this.monthlyIncome == null) {
+			if (other.monthlyIncome != null) {
+				return false;
+			}
+		} else if (!this.monthlyIncome.equals(other.monthlyIncome)) {
+			return false;
+		}
+		if (this.yearsInCurrentJob == null) {
+			if (other.yearsInCurrentJob != null) {
+				return false;
+			}
+		} else if (!this.yearsInCurrentJob.equals(other.yearsInCurrentJob)) {
+			return false;
+		}
+		if (this.yearsInCurrentResidence == null) {
+			if (other.yearsInCurrentResidence != null) {
+				return false;
+			}
+		} else if (!this.yearsInCurrentResidence
+				.equals(other.yearsInCurrentResidence)) {
+			return false;
+		}
+		if (this.incomeStatement == null) {
+			if (other.incomeStatement != null) {
+				return false;
+			}
+		} else if (!this.incomeStatement.equals(other.incomeStatement)) {
+			return false;
+		}
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return true;
+	}
+}

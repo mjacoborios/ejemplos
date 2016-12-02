@@ -1,0 +1,998 @@
+/**********************************************************************************************************************
+ * Copyright Â© 2010 - 2013, Accenture Software, All Rights Reserved.
+ * 
+ * Project Name: PF_FACTORY_BH_SERVICES
+ * 
+ * Description: pff Business Hub Services project contains entity data and implements both the business logic and the
+ * access layer with external systems (databases, external legacies through ESB, etc.) of pff application
+ * 
+ * Application: Product and Fee Factory
+ * 
+ * Company: Accenture
+ * 
+ * The trademarks used in these materials are the properties of their respective owners. This work is protected by
+ * copyright law and contains valuable trade secrets and confidential information.
+ ********************************************************************************************************************** 
+ */
+package com.accenture.ang.pffactory.referencial.entity.pricingdwh;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.Digits;
+
+import com.accenture.ang.common.referencial.audit.AuditEntity;
+import com.accenture.ang.pffactory.common.enums.ThresholdTypeEnum;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+
+/**
+ * Contract Customer relationship .
+ * 
+ * @generated
+ */
+@Entity(name = "pff_contractbalance")
+public class ContractBalance extends AuditEntity implements Serializable {
+    /**
+     * Default serial version UID.
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * Member variable for Prime Number Hashcode.
+     */
+    private static final int PRIME_NUMBER_HASHCODE = 31;
+
+    /**
+	 * average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal averageBalance;
+
+    /**
+	 * The id attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 20, fraction = 0)
+    private Long id;
+
+    /**
+	 * average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal userBalance1;
+
+    /**
+	 * average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal userBalance2;
+
+    /**
+	 * average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal userBalance3;
+
+    /**
+	 * average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal userBalance4;
+
+    /**
+	 * average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal userBalance5;
+
+    /**
+	 * The limitBalance attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal limitBalance;
+
+    /**
+	 * The withdrawnbalance attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal withdrawnbalance;
+
+    /**
+	 * The averagebalanceyear attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal averagebalanceyear;
+
+    /**
+	 * The withholdings attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal withholdings;
+
+    /**
+	 * The valuebalance attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal valuebalance;
+
+    /**
+	 * The requestedcapital attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal requestedcapital;
+
+    /**
+	 * The withdrawncapital attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal withdrawncapital;
+
+    /**
+	 * The realbalance attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal realbalance;
+
+    /**
+	 * The creditlimitcard attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal creditlimitcard;
+
+    /**
+	 * The withdrawal attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal withdrawal;
+
+    /**
+	 * The totalcredit attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal totalcredit;
+
+    /**
+	 * The quota attribute.
+	 * 
+	 * @generated
+	 */
+    @Digits(integer = 16, fraction = 2)
+    private BigDecimal quota;
+
+    /**
+	 * The contractDetails attribute.
+	 * 
+	 * @generated
+	 */
+//    @JsonIgnore 
+    private ContractDetails contractDetails;
+
+    /**
+     * Retrieve a particular column value.
+     * 
+     * @param column
+     *            the name of the column to retrieve
+     * @return the value of the column
+     */
+    public BigDecimal getColumnBalance(ThresholdTypeEnum column) {
+        switch (column) {
+            case AVERAGEBALANCE:
+                return this.averageBalance;
+            case AVERAGEBALANCEYEAR:
+                return this.averagebalanceyear;
+            case CREDITLIMITCARD:
+                return this.creditlimitcard;
+            case LIMITBALANCE:
+                return this.limitBalance;
+            case QUOTA:
+                return this.quota;
+            case REALBALANCE:
+                return this.realbalance;
+            case REQUESTEDCAPITAL:
+                return this.requestedcapital;
+            case TOTALCREDIT:
+                return this.totalcredit;
+            case VALUEBALANCE:
+                return this.valuebalance;
+            case WITHDRAWAL:
+                return this.withdrawal;
+            case WITHDRAWNBALANCE:
+                return this.withdrawnbalance;
+            case WITHDRAWNCAPITAL:
+                return this.withdrawncapital;
+            case WITHHOLDINGS:
+                return this.withholdings;
+            default:
+                return null;
+        }
+    }
+
+    /**
+	 * Retrieves the averageBalance.
+	 * 
+	 * @return average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getAverageBalance() {
+		/* Begin: Custom Code */
+        return this.averageBalance;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the averageBalance.
+	 * 
+	 * @param averageBalance
+	 *            average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    public void setAverageBalance(BigDecimal averageBalance) {
+		this.averageBalance = averageBalance;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the id.
+	 * 
+	 * @return the id return value.
+	 * 
+	 * @generated
+	 */
+    @Column(nullable = false, length = 0, precision = 20)
+    @Id
+    @GeneratedValue
+    public Long getId() {
+		/* Begin: Custom Code */
+        return this.id;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the id.
+	 * 
+	 * @param id
+	 *            the id parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setId(Long id) {
+		this.id = id;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userBalance1.
+	 * 
+	 * @return average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getUserBalance1() {
+		/* Begin: Custom Code */
+        return this.userBalance1;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userBalance1.
+	 * 
+	 * @param userBalance1
+	 *            average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    public void setUserBalance1(BigDecimal userBalance1) {
+		this.userBalance1 = userBalance1;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userBalance2.
+	 * 
+	 * @return average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getUserBalance2() {
+		/* Begin: Custom Code */
+        return this.userBalance2;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userBalance2.
+	 * 
+	 * @param userBalance2
+	 *            average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    public void setUserBalance2(BigDecimal userBalance2) {
+		this.userBalance2 = userBalance2;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userBalance3.
+	 * 
+	 * @return average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getUserBalance3() {
+		/* Begin: Custom Code */
+        return this.userBalance3;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userBalance3.
+	 * 
+	 * @param userBalance3
+	 *            average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    public void setUserBalance3(BigDecimal userBalance3) {
+		this.userBalance3 = userBalance3;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userBalance4.
+	 * 
+	 * @return average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getUserBalance4() {
+		/* Begin: Custom Code */
+        return this.userBalance4;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userBalance4.
+	 * 
+	 * @param userBalance4
+	 *            average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    public void setUserBalance4(BigDecimal userBalance4) {
+		this.userBalance4 = userBalance4;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the userBalance5.
+	 * 
+	 * @return average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getUserBalance5() {
+		/* Begin: Custom Code */
+        return this.userBalance5;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the userBalance5.
+	 * 
+	 * @param userBalance5
+	 *            average balance of the contract.
+	 * 
+	 * @generated
+	 */
+    public void setUserBalance5(BigDecimal userBalance5) {
+		this.userBalance5 = userBalance5;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the limitBalance.
+	 * 
+	 * @return the limitBalance return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getLimitBalance() {
+		/* Begin: Custom Code */
+        return this.limitBalance;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the limitBalance.
+	 * 
+	 * @param limitBalance
+	 *            the limitBalance parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setLimitBalance(BigDecimal limitBalance) {
+		this.limitBalance = limitBalance;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the withdrawnbalance.
+	 * 
+	 * @return the withdrawnbalance return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getWithdrawnbalance() {
+		/* Begin: Custom Code */
+        return this.withdrawnbalance;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the withdrawnbalance.
+	 * 
+	 * @param withdrawnbalance
+	 *            the withdrawnbalance parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setWithdrawnbalance(BigDecimal withdrawnbalance) {
+		this.withdrawnbalance = withdrawnbalance;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the averagebalanceyear.
+	 * 
+	 * @return the averagebalanceyear return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getAveragebalanceyear() {
+		/* Begin: Custom Code */
+        return this.averagebalanceyear;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the averagebalanceyear.
+	 * 
+	 * @param averagebalanceyear
+	 *            the averagebalanceyear parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setAveragebalanceyear(BigDecimal averagebalanceyear) {
+		this.averagebalanceyear = averagebalanceyear;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the withholdings.
+	 * 
+	 * @return the withholdings return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getWithholdings() {
+		/* Begin: Custom Code */
+        return this.withholdings;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the withholdings.
+	 * 
+	 * @param withholdings
+	 *            the withholdings parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setWithholdings(BigDecimal withholdings) {
+		this.withholdings = withholdings;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the valuebalance.
+	 * 
+	 * @return the valuebalance return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getValuebalance() {
+		/* Begin: Custom Code */
+        return this.valuebalance;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the valuebalance.
+	 * 
+	 * @param valuebalance
+	 *            the valuebalance parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setValuebalance(BigDecimal valuebalance) {
+		this.valuebalance = valuebalance;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the requestedcapital.
+	 * 
+	 * @return the requestedcapital return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getRequestedcapital() {
+		/* Begin: Custom Code */
+        return this.requestedcapital;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the requestedcapital.
+	 * 
+	 * @param requestedcapital
+	 *            the requestedcapital parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setRequestedcapital(BigDecimal requestedcapital) {
+		this.requestedcapital = requestedcapital;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the withdrawncapital.
+	 * 
+	 * @return the withdrawncapital return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getWithdrawncapital() {
+		/* Begin: Custom Code */
+        return this.withdrawncapital;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the withdrawncapital.
+	 * 
+	 * @param withdrawncapital
+	 *            the withdrawncapital parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setWithdrawncapital(BigDecimal withdrawncapital) {
+		this.withdrawncapital = withdrawncapital;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the realbalance.
+	 * 
+	 * @return the realbalance return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getRealbalance() {
+		/* Begin: Custom Code */
+        return this.realbalance;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the realbalance.
+	 * 
+	 * @param realbalance
+	 *            the realbalance parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setRealbalance(BigDecimal realbalance) {
+		this.realbalance = realbalance;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the creditlimitcard.
+	 * 
+	 * @return the creditlimitcard return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getCreditlimitcard() {
+		/* Begin: Custom Code */
+        return this.creditlimitcard;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the creditlimitcard.
+	 * 
+	 * @param creditlimitcard
+	 *            the creditlimitcard parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setCreditlimitcard(BigDecimal creditlimitcard) {
+		this.creditlimitcard = creditlimitcard;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the withdrawal.
+	 * 
+	 * @return the withdrawal return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getWithdrawal() {
+		/* Begin: Custom Code */
+        return this.withdrawal;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the withdrawal.
+	 * 
+	 * @param withdrawal
+	 *            the withdrawal parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setWithdrawal(BigDecimal withdrawal) {
+		this.withdrawal = withdrawal;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the totalcredit.
+	 * 
+	 * @return the totalcredit return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getTotalcredit() {
+		/* Begin: Custom Code */
+        return this.totalcredit;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the totalcredit.
+	 * 
+	 * @param totalcredit
+	 *            the totalcredit parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setTotalcredit(BigDecimal totalcredit) {
+		this.totalcredit = totalcredit;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the quota.
+	 * 
+	 * @return the quota return value.
+	 * 
+	 * @generated
+	 */
+    @Column(length = 0, precision = 18, scale = 2)
+    public BigDecimal getQuota() {
+		/* Begin: Custom Code */
+        return this.quota;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the quota.
+	 * 
+	 * @param quota
+	 *            the quota parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setQuota(BigDecimal quota) {
+		this.quota = quota;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Retrieves the contractDetails.
+	 * 
+	 * @return the contractDetails return value.
+	 * 
+	 * @generated
+	 */
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contractDetails_id", referencedColumnName = "id")
+    public ContractDetails getContractDetails() {
+		/* Begin: Custom Code */
+        return this.contractDetails;
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Sets the contractDetails.
+	 * 
+	 * @param contractDetails
+	 *            the contractDetails parameter variable.
+	 * 
+	 * @generated
+	 */
+    public void setContractDetails(ContractDetails contractDetails) {
+		this.contractDetails = contractDetails;
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+	}
+
+    /**
+	 * Method to generate hash code value of each attribute.
+	 * 
+	 * @return a hash code value for this object.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public int hashCode() {
+		int result = super.hashCode();
+		result = ContractBalance.PRIME_NUMBER_HASHCODE * result
+				+ ((this.id == null) ? 0 : this.id.hashCode());
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return result;
+	}
+
+    /**
+	 * Indicates whether some other object is "equal to" this one.
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare.
+	 * @return true if this object is the same as the obj argument; false
+	 *         otherwise.
+	 * 
+	 * @generated
+	 */
+    @Override
+    public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		ContractBalance other = (ContractBalance) obj;
+		if (this.averageBalance == null) {
+			if (other.averageBalance != null) {
+				return false;
+			}
+		} else if (!this.averageBalance.equals(other.averageBalance)) {
+			return false;
+		}
+		if (this.id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else if (!this.id.equals(other.id)) {
+			return false;
+		}
+		if (this.userBalance1 == null) {
+			if (other.userBalance1 != null) {
+				return false;
+			}
+		} else if (!this.userBalance1.equals(other.userBalance1)) {
+			return false;
+		}
+		if (this.userBalance2 == null) {
+			if (other.userBalance2 != null) {
+				return false;
+			}
+		} else if (!this.userBalance2.equals(other.userBalance2)) {
+			return false;
+		}
+		if (this.userBalance3 == null) {
+			if (other.userBalance3 != null) {
+				return false;
+			}
+		} else if (!this.userBalance3.equals(other.userBalance3)) {
+			return false;
+		}
+		if (this.userBalance4 == null) {
+			if (other.userBalance4 != null) {
+				return false;
+			}
+		} else if (!this.userBalance4.equals(other.userBalance4)) {
+			return false;
+		}
+		if (this.userBalance5 == null) {
+			if (other.userBalance5 != null) {
+				return false;
+			}
+		} else if (!this.userBalance5.equals(other.userBalance5)) {
+			return false;
+		}
+		if (this.limitBalance == null) {
+			if (other.limitBalance != null) {
+				return false;
+			}
+		} else if (!this.limitBalance.equals(other.limitBalance)) {
+			return false;
+		}
+		if (this.withdrawnbalance == null) {
+			if (other.withdrawnbalance != null) {
+				return false;
+			}
+		} else if (!this.withdrawnbalance.equals(other.withdrawnbalance)) {
+			return false;
+		}
+		if (this.averagebalanceyear == null) {
+			if (other.averagebalanceyear != null) {
+				return false;
+			}
+		} else if (!this.averagebalanceyear.equals(other.averagebalanceyear)) {
+			return false;
+		}
+		if (this.withholdings == null) {
+			if (other.withholdings != null) {
+				return false;
+			}
+		} else if (!this.withholdings.equals(other.withholdings)) {
+			return false;
+		}
+		if (this.valuebalance == null) {
+			if (other.valuebalance != null) {
+				return false;
+			}
+		} else if (!this.valuebalance.equals(other.valuebalance)) {
+			return false;
+		}
+		if (this.requestedcapital == null) {
+			if (other.requestedcapital != null) {
+				return false;
+			}
+		} else if (!this.requestedcapital.equals(other.requestedcapital)) {
+			return false;
+		}
+		if (this.withdrawncapital == null) {
+			if (other.withdrawncapital != null) {
+				return false;
+			}
+		} else if (!this.withdrawncapital.equals(other.withdrawncapital)) {
+			return false;
+		}
+		if (this.realbalance == null) {
+			if (other.realbalance != null) {
+				return false;
+			}
+		} else if (!this.realbalance.equals(other.realbalance)) {
+			return false;
+		}
+		if (this.creditlimitcard == null) {
+			if (other.creditlimitcard != null) {
+				return false;
+			}
+		} else if (!this.creditlimitcard.equals(other.creditlimitcard)) {
+			return false;
+		}
+		if (this.withdrawal == null) {
+			if (other.withdrawal != null) {
+				return false;
+			}
+		} else if (!this.withdrawal.equals(other.withdrawal)) {
+			return false;
+		}
+		if (this.totalcredit == null) {
+			if (other.totalcredit != null) {
+				return false;
+			}
+		} else if (!this.totalcredit.equals(other.totalcredit)) {
+			return false;
+		}
+		if (this.quota == null) {
+			if (other.quota != null) {
+				return false;
+			}
+		} else if (!this.quota.equals(other.quota)) {
+			return false;
+		}
+		if (this.contractDetails == null) {
+			if (other.contractDetails != null) {
+				return false;
+			}
+		} else if (!this.contractDetails.equals(other.contractDetails)) {
+			return false;
+		}
+		/* Begin: Custom Code */
+        /* End: Custom Code */
+		return true;
+	}
+}

@@ -1,0 +1,281 @@
+/**********************************************************************************************************************
+ * Copyright Â© 2010 - 2015, Accenture Software, All Rights Reserved.
+ * 
+ * Project Name:    PF_FACTORY_BH_SERVICES
+ *
+ * Description:     pff Business Hub Services project contains entity data and 
+ *                  implements both the business logic and the access layer with external systems  
+ *                  (databases, external legacies through ESB, etc.) of pff application
+ *
+ * Application:     Product and Fee Factory
+ * 
+ * Company:         Accenture 
+ * 
+ * The trademarks used in these materials are the properties of their respective owners.
+ * This work is protected by copyright law and contains valuable trade secrets and confidential information.
+ **********************************************************************************************************************
+ */
+package com.accenture.ang.pffactory.referencial.entity.pricingdwh;
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
+
+/**
+ * A Class representation of the 'CatClavesEmp' model object.
+ * 
+ * @generated
+ */
+@Entity(name = "pff_catclavesemp")
+public class CatClavesEmp implements Serializable {
+	/**
+	 * Default serial version UID.
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Member variable for Prime Number Hashcode.
+	 */
+	private static final int PRIME_NUMBER_HASHCODE = 31;
+
+	/**
+	 * The clave attribute.
+	 * 
+	 * @generated
+	 */
+	@Size(max = 50)
+	private String clave;
+
+
+
+	/**
+	 * The definicion attribute.
+	 * 
+	 * @generated
+	 */
+	@Size(max = 20)
+	private String definicion;
+
+	/**
+	 * The descripcion attribute.
+	 * 
+	 * @generated
+	 */
+	@Size(max = 255)
+	private String descripcion;
+
+	/**
+	 * The contractDetails attribute.
+	 * 
+	 * @generated
+	 */
+	private Set<ContractDetails> contractDetails;
+
+	/**
+	 * Retrieves the clave.
+	 * 
+	 * @return the clave return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 50)
+	@Id
+	public String getClave() {
+		/* Begin: Custom Code */
+		return this.clave;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the clave.
+	 * 
+	 * @param clave
+	 *            the clave parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setClave(String clave) {
+		this.clave = clave;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the tipo.
+	 * 
+	 * @return the tipo return value.
+	 * 
+	 * @generated
+	 */
+
+	/**
+	 * Sets the tipo.
+	 * 
+	 * @param tipo
+	 *            the tipo parameter variable.
+	 * 
+	 * @generated
+	 */
+
+	/**
+	 * Retrieves the definicion.
+	 * 
+	 * @return the definicion return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 20)
+	public String getDefinicion() {
+		/* Begin: Custom Code */
+		return this.definicion;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the definicion.
+	 * 
+	 * @param definicion
+	 *            the definicion parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setDefinicion(String definicion) {
+		this.definicion = definicion;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the descripcion.
+	 * 
+	 * @return the descripcion return value.
+	 * 
+	 * @generated
+	 */
+	@Column(length = 255)
+	public String getDescripcion() {
+		/* Begin: Custom Code */
+		return this.descripcion;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the descripcion.
+	 * 
+	 * @param descripcion
+	 *            the descripcion parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Retrieves the contractDetails.
+	 * 
+	 * @return the contractDetails return value.
+	 * 
+	 * @generated
+	 */
+	@OneToMany(mappedBy = "catClavesEmp")
+	public Set<ContractDetails> getContractDetails() {
+		/* Begin: Custom Code */
+		return this.contractDetails;
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Sets the contractDetails.
+	 * 
+	 * @param contractDetails
+	 *            the contractDetails parameter variable.
+	 * 
+	 * @generated
+	 */
+	public void setContractDetails(Set<ContractDetails> contractDetails) {
+		this.contractDetails = contractDetails;
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+	}
+
+	/**
+	 * Method to generate hash code value of each attribute.
+	 * 
+	 * @return a hash code value for this object.
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int hashCode() {
+		int result = 1;
+		result = CatClavesEmp.PRIME_NUMBER_HASHCODE * result
+				+ ((this.clave == null) ? 0 : this.clave.hashCode());
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+		return result;
+	}
+
+	/**
+	 * Indicates whether some other object is "equal to" this one.
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare.
+	 * @return true if this object is the same as the obj argument; false
+	 *         otherwise.
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		CatClavesEmp other = (CatClavesEmp) obj;
+		if (this.clave == null) {
+			if (other.clave != null) {
+				return false;
+			}
+		} else if (!this.clave.equals(other.clave)) {
+			return false;
+		}
+
+		if (this.definicion == null) {
+			if (other.definicion != null) {
+				return false;
+			}
+		} else if (!this.definicion.equals(other.definicion)) {
+			return false;
+		}
+		if (this.descripcion == null) {
+			if (other.descripcion != null) {
+				return false;
+			}
+		} else if (!this.descripcion.equals(other.descripcion)) {
+			return false;
+		}
+		if (this.contractDetails == null) {
+			if (other.contractDetails != null) {
+				return false;
+			}
+		} else if (!this.contractDetails.equals(other.contractDetails)) {
+			return false;
+		}
+		/* Begin: Custom Code */
+		/* End: Custom Code */
+		return true;
+	}
+}
+
