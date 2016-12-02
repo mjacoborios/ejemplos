@@ -12,6 +12,7 @@ public class HelloEhCache{
 		
 		//long startMemory = Runtime.getRuntime().totalMemory(); 
 		//Modifique esta linea
+		//Modifique esta otra linea
 		//1. Create a cache manager
 		CacheManager cm = CacheManager.newInstance();
 		
